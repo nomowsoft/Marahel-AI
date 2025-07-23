@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 const Hero = () => {
     const t = useTranslations("Hero");
     return (
-        <section className="lg:h-screen">
+        <section className="">
             <div className="py-8 mx-5 md:mx-20">
                 <h1 className="text-center text-primary text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-extrabold" data-aos="fade-up">
                     {t('title')}

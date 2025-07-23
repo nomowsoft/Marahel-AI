@@ -840,9 +840,9 @@ function Footer() {
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex justify-center items-center px-5 lg:pt-12 xl:pt-0 xl:px-24",
+                        className: "flex justify-center items-center px-5 lg:pt-24 xl:pt-16 2xl:pt-0 xl:px-24",
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "grid grid-cols-12 xl:16 2xl:mt-28",
+                            className: "grid grid-cols-12 lg:mt-10 xl:mt-8 2xl:mt-28",
                             children: [
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     className: "col-span-12 lg:col-span-4 xl:col-span-5",
@@ -1211,7 +1211,7 @@ function Footer() {
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: "text-center text-xl mt-12 xl:mt-24 2xl:mt-44 mb-12 mx-10 text-gray-500 font-doto2",
+                className: "text-center text-xl lg:mt-20 xl:mt-24 2xl:mt-32 mb-12 mx-10 text-gray-500 font-doto2",
                 children: t('copyright')
             }, void 0, false, {
                 fileName: "[project]/src/components/footer/Footer.tsx",

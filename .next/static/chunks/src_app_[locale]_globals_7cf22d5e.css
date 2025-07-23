@@ -739,10 +739,6 @@
     margin-top: calc(var(--spacing) * 10);
   }
 
-  .mt-12 {
-    margin-top: calc(var(--spacing) * 12);
-  }
-
   .mb-3 {
     margin-bottom: calc(var(--spacing) * 3);
   }
@@ -1731,12 +1727,6 @@
   }
 
   @media (min-width: 1024px) {
-    .lg\:h-screen {
-      height: 100vh;
-    }
-  }
-
-  @media (min-width: 1024px) {
     .lg\:w-1\/2 {
       width: 50%;
     }
@@ -1875,8 +1865,8 @@
   }
 
   @media (min-width: 1024px) {
-    .lg\:pt-12 {
-      padding-top: calc(var(--spacing) * 12);
+    .lg\:pt-24 {
+      padding-top: calc(var(--spacing) * 24);
     }
   }
 
@@ -1959,6 +1949,36 @@
   }
 
   @media (min-width: 1280px) {
+    .xl\:mt-1 {
+      margin-top: calc(var(--spacing) * 1);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .xl\:mt-8 {
+      margin-top: calc(var(--spacing) * 8);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .xl\:mt-10 {
+      margin-top: calc(var(--spacing) * 10);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .xl\:mt-12 {
+      margin-top: calc(var(--spacing) * 12);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .xl\:mt-16 {
+      margin-top: calc(var(--spacing) * 16);
+    }
+  }
+
+  @media (min-width: 1280px) {
     .xl\:mt-24 {
       margin-top: calc(var(--spacing) * 24);
     }
@@ -1983,8 +2003,8 @@
   }
 
   @media (min-width: 1280px) {
-    .xl\:pt-0 {
-      padding-top: calc(var(--spacing) * 0);
+    .xl\:pt-16 {
+      padding-top: calc(var(--spacing) * 16);
     }
   }
 
@@ -2022,14 +2042,26 @@
   }
 
   @media (min-width: 1536px) {
+    .\32 xl\:mt-1 {
+      margin-top: calc(var(--spacing) * 1);
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .\32 xl\:mt-20 {
+      margin-top: calc(var(--spacing) * 20);
+    }
+  }
+
+  @media (min-width: 1536px) {
     .\32 xl\:mt-28 {
       margin-top: calc(var(--spacing) * 28);
     }
   }
 
   @media (min-width: 1536px) {
-    .\32 xl\:mt-44 {
-      margin-top: calc(var(--spacing) * 44);
+    .\32 xl\:mt-32 {
+      margin-top: calc(var(--spacing) * 32);
     }
   }
 
@@ -2066,6 +2098,12 @@
   @media (min-width: 1536px) {
     .\32 xl\:py-44 {
       padding-block: calc(var(--spacing) * 44);
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .\32 xl\:pt-0 {
+      padding-top: calc(var(--spacing) * 0);
     }
   }
 
