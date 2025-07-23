@@ -1,0 +1,22 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1323 388" width="1323" height="388">
+	<title>New Project</title>
+	<defs>
+		<image width="1282" height="2" id="img1" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4MiIgaGVpZ2h0PSIyIiB2aWV3Qm94PSIwIDAgMTI4MiAyIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZyBvcGFjaXR5PSIwLjI1Ij4KPHJlY3Qgd2lkdGg9IjEyODIiIGhlaWdodD0iMiIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyXzU5XzExMjkpIi8+CjwvZz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl81OV8xMTI5IiB4MT0iMCIgeTE9IjEiIHgyPSIxMjgyIiB5Mj0iMSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjRTYwMDY0IiBzdG9wLW9wYWNpdHk9IjAuMiIvPgo8c3RvcCBvZmZzZXQ9IjAuNSIgc3RvcC1jb2xvcj0iIzVDNjRCNCIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNFNjAwNjQiIHN0b3Atb3BhY2l0eT0iMC4yIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+Cg=="/>
+		<image width="2" height="354" id="img2" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMiIgaGVpZ2h0PSIzNTQiIHZpZXdCb3g9IjAgMCAyIDM1NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgb3BhY2l0eT0iMC4yNSI+CjxyZWN0IHdpZHRoPSIzNTQiIGhlaWdodD0iMS45OTk5OCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMikgcm90YXRlKDkwKSIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyXzU5XzExMjUpIi8+CjwvZz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhcl81OV8xMTI1IiB4MT0iMCIgeTE9IjAuOTk5OTkyIiB4Mj0iMzU0IiB5Mj0iMC45OTk5OTIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iI0U2MDA2NCIgc3RvcC1vcGFjaXR5PSIwLjIiLz4KPHN0b3Agb2Zmc2V0PSIwLjUiIHN0b3AtY29sb3I9IiM1QzY0QjQiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRTYwMDY0IiBzdG9wLW9wYWNpdHk9IjAuMiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjwvc3ZnPgo="/>
+		<image width="13" height="14" id="img3" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxMyAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggb3BhY2l0eT0iMC4yNSIgZD0iTTEyLjk5MjQgMEgwVjEzLjAyMTVIMTIuOTkyNFYwWiIgZmlsbD0iIzVFNThBMiIvPgo8L3N2Zz4K"/>
+		<image width="13" height="14" id="img4" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxMyAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggb3BhY2l0eT0iMC4yNSIgZD0iTTEyLjk5MjQgMEgwVjEzLjAyMTVIMTIuOTkyNFYwWiIgZmlsbD0iI0U2MDA2NCIvPgo8L3N2Zz4K"/>
+	</defs>
+	<style>
+	</style>
+	<use id="Div [absolute]" href="#img1" transform="matrix(1,0,0,1,24,-118)"/>
+	<use id="Div [absolute] copy" href="#img1" transform="matrix(1,0,0,1,24,372)"/>
+	<use id="Div [absolute] (1)" href="#img2" transform="matrix(1,0,0,1,1306,23)"/>
+	<use id="Vector" href="#img3" transform="matrix(1,0,0,1,1293,358)"/>
+	<use id="Vector (1)" href="#img4" transform="matrix(1,0,0,1,1304,370)"/>
+	<use id="Vector copy 2" href="#img3" transform="matrix(1,0,0,1,1308,-126)"/>
+	<use id="Vector (1) copy 2" href="#img4" transform="matrix(1,0,0,1,1295,-116)"/>
+	<use id="Vector copy 3" href="#img3" transform="matrix(1,0,0,1,10,369)"/>
+	<use id="Vector (1) copy 3" href="#img4" transform="matrix(1,0,0,1,22,358)"/>
+	<use id="Vector copy" href="#img3" transform="matrix(1,0,0,1,22,-115)"/>
+	<use id="Vector (1) copy" href="#img4" transform="matrix(1,0,0,1,9,-124)"/>
+</svg>

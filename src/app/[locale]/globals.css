@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@font-face{
+  font-family: Doto;
+  src: url("/fonts/Cairo-Bold-BF643384ee22aa6.ttf");
+}
+@font-face{
+  font-family: Doto2;
+  src: url("/fonts/Cairo-Light-BF643384ef1c5f4.ttf");
+}
+@theme{
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  --color-primary: #473391;
+  --color-secondary: #F288B7;
+  /* font */
+  --font-doto: Doto, "sans-serif";
+  --font-doto2: Doto2, "sans-serif";
+}
+
+main{
+  min-height: calc(100vh - 508.11px);
+}
