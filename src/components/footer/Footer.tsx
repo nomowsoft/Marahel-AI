@@ -29,8 +29,8 @@ export default function Footer() {
                     height={20}
                     className="w-full object-cover absolute bottom-0 lg:top-24 2xl:top-1 px-5 xl:px-24 right-0"
                 />
-                <div className="flex justify-center items-center px-5 lg:pt-12 xl:pt-0 xl:px-24">
-                    <div className="grid grid-cols-12 xl:16 2xl:mt-28">
+                <div className="flex justify-center items-center px-5 lg:pt-24 xl:pt-16 2xl:pt-0 xl:px-24">
+                    <div className="grid grid-cols-12 lg:mt-10 xl:mt-8 2xl:mt-28">
                         <div className="col-span-12 lg:col-span-4 xl:col-span-5">
                             <Image src="/footer/Calque_1 (1).svg" alt="..." width={250} height={10} className="mt-5" />
                             <div className="flex justify-between items-center mt-3 w-64">
@@ -114,7 +114,7 @@ export default function Footer() {
                     </div>
                 </div>
             </footer>
-            <p className="text-center text-xl mt-12 xl:mt-24 2xl:mt-44 mb-12 mx-10 text-gray-500 font-doto2">
+            <p className="text-center text-xl lg:mt-20 xl:mt-24 2xl:mt-32 mb-12 mx-10 text-gray-500 font-doto2">
                 {t('copyright')}
             </p>
         </section>
