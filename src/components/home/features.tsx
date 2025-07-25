@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import { getFeatures } from '@/utils/data';
 
 const Features = () => {
-    const t = useTranslations('AddValue');
+    const t = useTranslations('Features');
     const values = getFeatures(t);
     return (
         <section className="py-20">

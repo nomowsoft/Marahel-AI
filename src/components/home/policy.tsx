@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 
 const Policy = () => {
@@ -48,9 +49,9 @@ const Policy = () => {
                                 {t('description_card')}
                             </p>
                             <div className="flex mt-6 justify-center md:justify-start">
-                                <a href="#" className="bg-primary text-white p-4 rounded-lg text-2xl">
-                                    {t('button')}
-                                </a>
+                                <Link href={`/${locale}/contact_us`} className="bg-primary text-white p-4 rounded-lg text-2xl">
+                                    {t('contactus')}
+                                </Link>
                             </div>
                         </div>
                     </div>

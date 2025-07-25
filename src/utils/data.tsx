@@ -143,14 +143,14 @@ export const getDifference = (t: (key: string) => string): Difference[] => [
     },
     {
         id: 5,
-        title: t('title4'),
-        description: t('description4'),
+        title: t('title5'),
+        description: t('description6'),
         image: "/difference/cpu.svg",
     },
     {
         id: 6,
-        title: t('title4'),
-        description: t('description4'),
+        title: t('title6'),
+        description: t('description6'),
         image: "/difference/database.svg",
     }
 ]
@@ -174,15 +174,15 @@ export const getService1 = (t: (key: string) => string): Service[] => [
     },
     {
         id: 5,
-        title: t('title4'),
+        title: t('title5'),
     },
     {
         id: 6,
-        title: t('title4'),
+        title: t('title6'),
     },
     {
         id: 7,
-        title: t('title4'),
+        title: t('title7'),
     }
 ]
 export const getService2 = (t: (key: string) => string): Service[] => [
@@ -204,14 +204,6 @@ export const getService2 = (t: (key: string) => string): Service[] => [
     },
     {
         id: 5,
-        title: t('title4'),
+        title: t('title5'),
     },
-    {
-        id: 6,
-        title: t('title4'),
-    },
-    {
-        id: 7,
-        title: t('title4'),
-    }
 ]

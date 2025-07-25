@@ -38,7 +38,6 @@ export default function Header() {
     <header className={`${pathname === `/${locale}/morshed` ? "hidden" : ""} lg:mt-8`}>
       <nav className="bg-white border-gray-200 px-4 lg:px-1 relative w-full">
         <div className="flex flex-wrap justify-between items-center xl:mx-20 relative">
-          {/* الشعار والتنقل */}
           <div className="flex items-center my-2">
             <Link href="/" className="flex items-center">
               <Image height={20} width={250} src="/header/Frame 8.svg" alt="Logo" />
@@ -48,7 +47,6 @@ export default function Header() {
             </div>
           </div>
 
-          {/* القائمة العلوية على الأجهزة الكبيرة */}
           <div className="hidden lg:flex items-center space-x-4">
             <LocaleSwitcher />
             <Link
@@ -56,7 +54,7 @@ export default function Header() {
               href="#"
               className="mx-1 border border-primary py-1 px-2 rounded-md flex items-center"
             >
-              <span className="mx-2 text-primary font-extrabold">947 377 548 966+</span>
+              <span className="mx-2 text-primary font-extrabold">1191 455 53 966+</span>
               <div className="flex items-center">
                 <Image height={0} width={40} src="/header/phone.svg" alt="phone" />
               </div>
@@ -117,7 +115,7 @@ export default function Header() {
                 className="mx-2 border border-secondary py-2 px-4 rounded-md flex justify-center items-center"
               >
                 <span className="mx-2 text-xl text-primary font-extrabold" dir="rtl">
-                  947 377 548 966+
+                  1191 455 53 966+
                 </span>
                 <div className="flex justify-center items-center">
                   <Image height={0} width={40} src="/header/phone.svg" alt="phone" />

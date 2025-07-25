@@ -18,9 +18,6 @@ const Hero = () => {
                 <div className="flex justify-center items-center" data-aos="zoom-in">
                     <Image src="/hero/ai.gif" alt="hero" width={700} height={20} />
                 </div>
-                <div className="flex justify-center" data-aos="zoom-in">
-                    <a href="#" className="bg-primary text-white p-4 rounded-lg text-2xl">{t('button')}</a>
-                </div>
             </div>
             <hr className="text-primary opacity-10" />
         </section>

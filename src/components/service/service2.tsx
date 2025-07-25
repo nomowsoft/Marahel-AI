@@ -1,27 +1,31 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import { getService2 } from "@/utils/data";
 
 
-const Service2 = () => {
-    const t = useTranslations('Service1');
+const Service2 = ({ enabled }: { enabled: boolean }) => {
+    const t = useTranslations('Service2');
     const steps = getService2(t);
     const locale = useLocale();
     const isArabic = locale === 'ar';
     const [activeStep, setActiveStep] = useState(1);
     const [selectedSteps, setSelectedSteps] = useState([1]);
 
-    const handleStepClick = (id: number) => {
-        if (!selectedSteps.includes(id)) {
-            setSelectedSteps((prev) => [...prev, id]);
-            setActiveStep(id);
+   useEffect(() => {
+        if (enabled && activeStep < steps.length) {
+        const timer = setTimeout(() => {
+            const nextStep = activeStep + 1;
+            setSelectedSteps((prev) => [...prev, nextStep]);
+            setActiveStep(nextStep);
+        }, 1500);
+        return () => clearTimeout(timer);
         }
-    };
+    }, [activeStep, steps.length, enabled]);
 
     return (
-        <section>
+        <section className={`${enabled ? 'block' : 'hidden'}`} data-aos="fade-up" >
             <h1 className="text-primary text-xl lg:text-2xl xl:text-3xl font-extrabold text-center my-10" data-aos="fade-up">
                 2. {t('title')}
             </h1>
@@ -41,16 +45,15 @@ const Service2 = () => {
 
                         {steps.map((step) => (
                             <div key={step.id} className="flex items-center gap-4 relative z-10">
-                                <button
-                                    onClick={() => handleStepClick(step.id)}
+                                <div
                                     className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full border flex items-center justify-center text-sm font-medium transition flex-shrink-0
-                             ${selectedSteps.includes(step.id)
+                                            ${selectedSteps.includes(step.id)
                                             ? "bg-gray-200 text-primary border-primary"
-                                            : "bg-white text-primary border-gray-200 hover:bg-gray-300"
+                                            : "bg-white text-primary border-gray-200"
                                         }`}
                                 >
                                     {step.id}
-                                </button>
+                                </div>
 
                                 <AnimatePresence>
                                     {selectedSteps.includes(step.id) && (
