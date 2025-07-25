@@ -14,7 +14,7 @@ export default function Footer() {
 
     return (
         <section className={`${new_path === `/${locale}/morshed` ? 'hidden' : ''} lg:mx-20`}>
-            <footer className="w-full relative overflow-hidden bg-white px-5 sm:px-8 md:px-16 xl:px-24 xl:py-5 2xl:py-16">
+            <footer className="w-full relative overflow-hidden  px-5 sm:px-8 md:px-16 xl:px-24 xl:py-5 2xl:py-16">
                 <Image
                     src="/footer/New Project.svg"
                     alt="..."
