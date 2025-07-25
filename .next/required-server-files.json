@@ -1,7 +1,9 @@
 {
   "version": 1,
   "config": {
-    "env": {},
+    "env": {
+      "NEXT_PUBLIC_API_URL": "http://localhost:8041"
+    },
     "eslint": {
       "ignoreDuringBuilds": false
     },
@@ -48,7 +50,9 @@
       "path": "/_next/image",
       "loader": "default",
       "loaderFile": "",
-      "domains": [],
+      "domains": [
+        "localhost"
+      ],
       "disableStaticImages": false,
       "minimumCacheTTL": 60,
       "formats": [
