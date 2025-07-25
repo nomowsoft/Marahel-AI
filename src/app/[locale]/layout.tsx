@@ -7,6 +7,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 type Locale = 'en' | 'ar';
 
@@ -27,6 +29,7 @@ export default async function RootLayout({ children, params }: { children: React
           <Header />
           <main>
             {children}
+            <ToastContainer />
           </main>
           <Footer />
           <div className={`fixed bottom-10 ${locale === 'ar' ? 'left-10' : 'right-10'}`}>

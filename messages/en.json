@@ -93,6 +93,19 @@
       "title4": "Evaluation the Application in terms of Speed and AI Metrics.",
       "title5": "Central Traces and Metrics for Future Improvements and References."
     },
+    "ContactUs": {
+      "title": "Contact Us",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "message": "Message",
+      "location": "Location",
+      "send": "Send",
+      "invalidEmail": "Invalid email format. Example: example@email.com",
+      "invalidPhone": "Invalid phone number. Example: 05xxxxxxxx",
+      "filerequired": "All fields are required"
+    },
     "Footer": {
       "description": "By focusing and precisely focusing on providing creative and seamless technical and digital products with artistic and innovative use of artificial intelligence (AI) while maintaining a high level of quality to provide unique and distinctive services to our customers.",
       "email": "Email",
