@@ -26,11 +26,11 @@ const Service2 = ({ enabled }: { enabled: boolean }) => {
 
     return (
         <section className={`${enabled ? 'block' : 'hidden'}`} data-aos="fade-up" >
-            <h1 className="text-primary text-xl lg:text-2xl xl:text-3xl font-extrabold text-center my-10" data-aos="fade-up">
-                2. {t('title')}
-            </h1>
             <div className="lg:py-16 px-4 sm:px-6 lg:px-8 lg:max-w-screen-xl lg:mx-auto">
-                <div className="container lg:mx-auto flex flex-col lg:flex-row items-center lg:gap-12">
+                <h1 className=" text-xl lg:text-2xl xl:text-3xl font-extrabold my-10" data-aos="fade-up">
+                    2. {t('title')}
+                </h1>
+                <div className="container lg:mx-auto flex flex-col lg:flex-row items-center lg:gap-12 bg-white rounded-2xl py-10 px-5">
                     <div className="w-full lg:w-2/3 flex flex-col gap-6 relative" data-aos={isArabic ? "fade-left" : "fade-up"}>
                         <div className={`absolute top-6 bottom-6 w-px z-0 lg:left-8 ${isArabic ? 'right-7' : 'left-7'}`}>
                             <div className="w-full h-full flex flex-col justify-between">

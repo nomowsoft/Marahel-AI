@@ -77,7 +77,8 @@
       "contactus": "Contact Us"
     },
     "Service1": {
-      "title": "The Services we Provide",
+      "title": "Our services in Artificial Intelligence (AI)",
+      "title0": "Evaluation and deployment of Large Language Models (LLM)",
       "title1": "Model Selection Based on Customer Data.",
       "title2": "Fine Tune Model with Customer Specific Large Knowledge.",
       "title3": "Enhancing The Model Inferencing Performance Using Different Algorithms and Depending on Customer Needs.",
@@ -87,7 +88,7 @@
       "title7": "Provide the LLM as an OpenAI Compatible end point with Cost tracking and user Authentication."
     },
     "Service2": {
-      "title": "What we Provide",
+      "title": "Development of autonomous AI applications",
       "title1": "Integrate Different UI Platforms (WhatsApp, web, mobile app, API) with Agentic AI Applications.",
       "title2": "Professional Chat & Human-in-the-Loop Server.",
       "title3": "Professional Tools Serving AI Agents and Adhering Cutting-edge technologies and techniques for Providing best Results.",
