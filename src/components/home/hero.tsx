@@ -1,7 +1,9 @@
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 const Hero = () => {
+    const locale = useLocale();
+    const isArabic = locale === 'ar';
     const t = useTranslations("Hero");
     return (
         <section className="">
@@ -16,7 +18,8 @@ const Hero = () => {
                     {t('description2')}
                 </p>
                 <div className="flex justify-center items-center" data-aos="zoom-in">
-                    <Image src="/hero/ai.gif" alt="hero" width={700} height={20} />
+                    <Image src="/hero/ai.gif" alt="hero" width={700} height={20} className={` ${ isArabic ? 'block' : 'hidden'}`} />
+                    <Image src="/hero/aien.gif" alt="hero" width={700} height={20} className={`${ isArabic ? 'hidden' : 'block' }`} />
                 </div>
             </div>
             <hr className="text-primary opacity-10" />

@@ -1312,6 +1312,10 @@
     padding-block: calc(var(--spacing) * 10);
   }
 
+  .py-12 {
+    padding-block: calc(var(--spacing) * 12);
+  }
+
   .py-16 {
     padding-block: calc(var(--spacing) * 16);
   }
@@ -1326,6 +1330,26 @@
 
   .py-24 {
     padding-block: calc(var(--spacing) * 24);
+  }
+
+  .py-32 {
+    padding-block: calc(var(--spacing) * 32);
+  }
+
+  .py-44 {
+    padding-block: calc(var(--spacing) * 44);
+  }
+
+  .py-52 {
+    padding-block: calc(var(--spacing) * 52);
+  }
+
+  .py-60 {
+    padding-block: calc(var(--spacing) * 60);
+  }
+
+  .py-4432 {
+    padding-block: calc(var(--spacing) * 4432);
   }
 
   .pt-0 {
@@ -1758,6 +1782,18 @@
   }
 
   @media (min-width: 768px) {
+    .md\:py-12 {
+      padding-block: calc(var(--spacing) * 12);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .md\:py-32 {
+      padding-block: calc(var(--spacing) * 32);
+    }
+  }
+
+  @media (min-width: 768px) {
     .md\:text-center {
       text-align: center;
     }
@@ -1881,6 +1917,18 @@
   @media (min-width: 1024px) {
     .lg\:my-0 {
       margin-block: calc(var(--spacing) * 0);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lg\:my-10 {
+      margin-block: calc(var(--spacing) * 10);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lg\:my-16 {
+      margin-block: calc(var(--spacing) * 16);
     }
   }
 
@@ -2113,8 +2161,26 @@
   }
 
   @media (min-width: 1024px) {
+    .lg\:py-12 {
+      padding-block: calc(var(--spacing) * 12);
+    }
+  }
+
+  @media (min-width: 1024px) {
     .lg\:py-16 {
       padding-block: calc(var(--spacing) * 16);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lg\:py-20 {
+      padding-block: calc(var(--spacing) * 20);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .lg\:py-24 {
+      padding-block: calc(var(--spacing) * 24);
     }
   }
 
@@ -2312,6 +2378,12 @@
   }
 
   @media (min-width: 1280px) {
+    .xl\:py-24 {
+      padding-block: calc(var(--spacing) * 24);
+    }
+  }
+
+  @media (min-width: 1280px) {
     .xl\:pt-16 {
       padding-top: calc(var(--spacing) * 16);
     }
@@ -2355,6 +2427,12 @@
   @media (min-width: 1536px) {
     .\32 xl\:top-1 {
       top: calc(var(--spacing) * 1);
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .\32 xl\:my-20 {
+      margin-block: calc(var(--spacing) * 20);
     }
   }
 

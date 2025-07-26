@@ -23,7 +23,8 @@
       "description5": "Veteran AI architects partner with you from ideation to rollout, translating business goals into production code."
     },
     "Experience": {
-      "title": "LLM Evaluation Expertise",
+      "title": "Evaluation of Large Language Models (LLM)",
+      "title0": "LLM Evaluation Expertise",
       "description": "We score every deployment with a dual lens: open benchmarks like MMLU for comparability, and proprietary domain tests that model real-world edge cases. The result is a numerical “Fit-for-Purpose Index” that predicts production accuracy before go-live."
     },
     "Features": {
