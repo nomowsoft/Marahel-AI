@@ -88,7 +88,7 @@ export default function Footer() {
                                     </p>
                                 </div>
                             </div>
-                            <div className="flex items-center py-2 xl:px-5">
+                            <a href="mailto:info@marahel.com.sa" className="flex items-center py-2 xl:px-5">
                                 <div className="flex justify-center items-start min-w-[32px]">
                                     <Image src="/footer/Button.svg" alt="..." className="w-8 h-auto" width={32} height={20} />
                                 </div>
@@ -98,8 +98,8 @@ export default function Footer() {
                                         info@marahel.com.sa
                                     </p>
                                 </div>
-                            </div>
-                            <div className="flex items-center py-2 xl:px-5">
+                            </a>
+                            <a href="tel:+966534551191" className="flex items-center py-2 xl:px-5">
                                 <div className="flex justify-center items-start min-w-[32px]">
                                     <Image src="/footer/Button (1).svg" alt="..." className="h-auto" width={32} height={20} />
                                 </div>
@@ -109,7 +109,7 @@ export default function Footer() {
                                         1191 455 53 966+
                                     </p>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
