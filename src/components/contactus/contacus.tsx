@@ -23,7 +23,7 @@ const Contactus = () => {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center py-5 px-6">
+                <a href="mailto:info@marahel.com.sa" className="flex items-center py-5 px-6">
                   <div className="flex justify-center items-center rounded-md">
                     <Image src="/contactus/image2.svg" alt="..." width={50} height={20} />
                   </div>
@@ -33,8 +33,8 @@ const Contactus = () => {
                       info@marahel.com.sa
                     </p>
                   </div>
-                </div>
-                <div className="flex items-center py-5 px-6">
+                </a>
+                <a href="tel:+966534551191" className="flex items-center py-5 px-6">
                   <div className="flex justify-center items-centerrounded-md">
                     <Image src="/contactus/image3.svg" alt="..." width={50} height={20} />
                   </div>
@@ -44,7 +44,7 @@ const Contactus = () => {
                       947 377 548 966+
                     </p>
                   </div>
-                </div>
+                </a>
               </div>
               <div className="py-10">
                 <div className="py-2">
