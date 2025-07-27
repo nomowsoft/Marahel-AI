@@ -1,4 +1,4 @@
 {
-  "/[locale]/page": "app/[locale]/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/[locale]/contact_us/page": "app/[locale]/contact_us/page.js",
+  "/[locale]/page": "app/[locale]/page.js"
 }
