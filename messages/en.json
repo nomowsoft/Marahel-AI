@@ -107,7 +107,9 @@
       "send": "Send",
       "invalidEmail": "Invalid email format. Example: example@email.com",
       "invalidPhone": "Invalid phone number. Example: 05xxxxxxxx",
-      "filerequired": "All fields are required"
+      "filerequired": "All fields are required",
+      "success": "Request successful",
+      "error": "Request failed"
     },
     "Footer": {
       "description": "By focusing and precisely focusing on providing creative and seamless technical and digital products with artistic and innovative use of artificial intelligence (AI) while maintaining a high level of quality to provide unique and distinctive services to our customers.",
