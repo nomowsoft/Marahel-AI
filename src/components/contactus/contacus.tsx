@@ -49,7 +49,7 @@ const Contactus = () => {
 
     if (res.ok) {
       const data = await res.json();
-      toast.success(data.message);
+      toast.success(t('success'));
       setName('');
       setEmail('');
       setPhone('');
@@ -57,7 +57,7 @@ const Contactus = () => {
       setMessage('');
     } else {
       const data = await res.json();
-      toast.error(data.message);
+      toast.error(t('error'));
     }
   };
   return (
