@@ -80,7 +80,7 @@ const Service1 = ({ onComplete }: { onComplete: () => void }) => {
                         ))}
                     </div>
 
-                    <div className="relative w-full lg:w-1/2 h-96 lg:h-[32rem] flex justify-center bg-gray-200 rounded-3xl overflow-hidden px-2 sm:px-4 py-6" data-aos="fade-down">
+                    <div className="relative w-full lg:w-1/2 h-96 lg:h-[32rem] flex justify-center  rounded-3xl overflow-hidden px-2 sm:px-4 py-6" data-aos="fade-down">
                         <Image
                             src="/service/image.svg"
                             alt="..."

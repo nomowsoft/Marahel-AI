@@ -2,7 +2,7 @@
   "version": 1,
   "config": {
     "env": {
-      "NEXT_PUBLIC_API_URL": "http://localhost:8041"
+      "NEXT_PUBLIC_API_URL": "https://support.marahel.sa"
     },
     "eslint": {
       "ignoreDuringBuilds": false

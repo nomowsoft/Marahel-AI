@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -11,11 +11,13 @@ const Contactus = () => {
   const [phone, setPhone] = useState('');
   const [title, setTitle] = useState('');
   const [message, setMessage] = useState('');
+  const [showModal, setShowModal] = useState(false);
   const website = 'marahel_ai';
+
   const isValidEmail = (email: string) =>
-  /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const isValidPhone = (phone: string) =>
-  /^05\d{8}$/.test(phone);
+    /^\d{10}$/.test(phone);
 
   const handleContactUs = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -32,34 +34,32 @@ const Contactus = () => {
       toast.error(t('invalidPhone'));
       return;
     }
+
     const res = await fetch('/api/contact_us', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        message,
-        phone,
-        title,
-        website
-      }),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, message, phone, title, website }),
     });
 
     if (res.ok) {
-      const data = await res.json();
-      toast.success(t('success'));
+      setShowModal(true);
       setName('');
       setEmail('');
       setPhone('');
       setTitle('');
       setMessage('');
     } else {
-      const data = await res.json();
       toast.error(t('error'));
     }
   };
+
+  useEffect(() => {
+    if (showModal) {
+      const timer = setTimeout(() => setShowModal(false), 6000);
+      return () => clearTimeout(timer);
+    }
+  }, [showModal]);
+
   return (
     <section className="py-10 lg:py-32">
       <div className="max-w-screen-lg mx-auto">
@@ -69,9 +69,7 @@ const Contactus = () => {
             <div className="grid lg:grid-cols-2 gap-4">
               <div className="py-10">
                 <div className="flex items-center py-5 px-6">
-                  <div className="flex justify-center items-center rounded-md">
-                    <Image src="/contactus/image1.svg" alt="..." width={50} height={20} />
-                  </div>
+                  <Image src="/contactus/image1.svg" alt="..." width={50} height={20} />
                   <div className="mx-3 font-js">
                     <h1 className="text-xl text-primary font-extrabold font-doto2">{t('location')}</h1>
                     <p className="font-doto2">
@@ -80,90 +78,47 @@ const Contactus = () => {
                   </div>
                 </div>
                 <a href="mailto:info@marahel.com.sa" className="flex items-center py-5 px-6">
-                  <div className="flex justify-center items-center rounded-md">
-                    <Image src="/contactus/image2.svg" alt="..." width={50} height={20} />
-                  </div>
+                  <Image src="/contactus/image2.svg" alt="..." width={50} height={20} />
                   <div className="mx-3 font-js">
                     <h1 className="text-xl text-primary font-extrabold font-doto2">{t('email')}</h1>
-                    <p className="font-doto2">
-                      info@marahel.com.sa
-                    </p>
+                    <p className="font-doto2">info@marahel.com.sa</p>
                   </div>
                 </a>
                 <a href="tel:+966534551191" className="flex items-center py-5 px-6">
-                  <div className="flex justify-center items-centerrounded-md">
-                    <Image src="/contactus/image3.svg" alt="..." width={50} height={20} />
-                  </div>
+                  <Image src="/contactus/image3.svg" alt="..." width={50} height={20} />
                   <div className="mx-3 font-js">
                     <h1 className="text-xl font-extrabold text-primary font-doto2">{t('phone')}</h1>
-                    <p dir="rtl" className="font-doto2">
-                      947 377 548 966+
-                    </p>
+                    <p dir="rtl" className="font-doto2">947 377 548 966+</p>
                   </div>
                 </a>
               </div>
+
               <div className="py-10">
-                <div className="py-2">
-                  <input
-                    type="text"
-                    className="border border-b-gray-500 border-r-white border-l-white border-t-white 
-                    placeholder:text-gray-500 text-gray-500 text-xl font-doto2 font-bold font-js w-full h-10 
-                    focus:outline-none focus:border-b-primary  focus:placeholder:text-primary focus:text-primary
-                    hover:border-b-primary transition-all"
-                    placeholder={t('name')}
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                </div>
-                <div className="py-2">
-                  <input
-                    type="text"
-                    className="border border-b-gray-500 border-r-white border-l-white border-t-white 
-                  placeholder:text-gray-500 text-gray-500 text-xl font-doto2 font-bold font-js w-full h-10 
-                  focus:outline-none focus:border-b-primary  focus:placeholder:text-primary focus:text-primary
-                  hover:border-b-primary transition-all"
-                    placeholder={t('email')}
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-                <div className="py-2">
-                  <input
-                    type="text"
-                    className="border border-b-gray-500 border-r-white border-l-white border-t-white 
-                  placeholder:text-gray-500 text-gray-500 text-xl font-doto2 font-bold font-js w-full h-10 
-                  focus:outline-none focus:border-b-primary  focus:placeholder:text-primary focus:text-primary
-                  hover:border-b-primary transition-all"
-                    placeholder={t('phone')}
-                    maxLength={10}
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                  />
-                </div>
-                <div className="py-2">
-                  <input
-                    type="text"
-                    className="border border-b-gray-500 border-r-white border-l-white border-t-white 
-                  placeholder:text-gray-500 text-gray-500 text-xl font-bold font-doto2 font-js w-full h-10 
-                  focus:outline-none focus:border-b-primary  focus:placeholder:text-primary focus:text-primary
-                  hover:border-b-primary transition-all"
-                    placeholder={t('address')}
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                  />
-                </div>
-                <div className="py-2">
-                  <input
-                    type="text"
-                    className="border border-b-gray-500 border-r-white border-l-white border-t-white 
-                  placeholder:text-gray-500 text-gray-500 text-xl font-doto2 font-bold font-js w-full h-10 
-                  focus:outline-none focus:border-b-primary  focus:placeholder:text-primary focus:text-primary
-                  hover:border-b-primary transition-all"
-                    placeholder={t('message')}
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                  />
-                </div>
+                {[{
+                  placeholder: t('name'), value: name, setValue: setName
+                }, {
+                  placeholder: t('email'), value: email, setValue: setEmail
+                }, {
+                  placeholder: t('phone'), value: phone, setValue: setPhone, maxLength: 10
+                }, {
+                  placeholder: t('address'), value: title, setValue: setTitle
+                }, {
+                  placeholder: t('message'), value: message, setValue: setMessage
+                }].map((field, idx) => (
+                  <div className="py-2" key={idx}>
+                    <input
+                      type="text"
+                      className="border border-b-gray-500 border-r-white border-l-white border-t-white 
+                        placeholder:text-gray-500 text-gray-500 text-xl font-doto2 font-bold font-js w-full h-10 
+                        focus:outline-none focus:border-b-primary focus:placeholder:text-primary focus:text-primary
+                        hover:border-b-primary transition-all"
+                      placeholder={field.placeholder}
+                      value={field.value}
+                      maxLength={field.maxLength}
+                      onChange={(e) => field.setValue(e.target.value)}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
             <div className="flex justify-center">
@@ -171,16 +126,38 @@ const Contactus = () => {
                 type="submit"
                 className="mx-2 bg-primary border border-primary py-4 px-16 rounded-md flex justify-center items-center"
               >
-                <span className="mx-2 lg:text-2xl text-white">
-                  {t('send')}
-                </span>
+                <span className="mx-2 lg:text-2xl text-white">{t('send')}</span>
               </button>
             </div>
           </form>
         </div>
       </div>
-    </section>
-  )
-}
 
-export default Contactus
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-opacity-50 backdrop-blur-sm">
+          <div className="relative bg-white rounded-2xl px-6 py-8 w-full max-w-sm text-center shadow-xl">
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-4 left-4 text-primary text-2xl font-bold"
+            >
+              <Image src="/contactus/X.svg" alt="..." width={30} height={20} />
+            </button>
+            <h2 className="text-xl font-bold text-primary mb-2 mt-7">{t('successTitle')}</h2>
+            <p className="text-gray-700 mb-6">
+              {t('success')}
+            </p>
+            <button
+              onClick={() => setShowModal(false)}
+              className="bg-primary text-white px-6 py-2 rounded-xl transition"
+            >
+              {t('ok')}
+            </button>
+          </div>
+        </div>
+      )}
+
+    </section>
+  );
+};
+
+export default Contactus;
