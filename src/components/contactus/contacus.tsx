@@ -99,7 +99,7 @@ const Contactus = () => {
                 }, {
                   placeholder: t('email'), value: email, setValue: setEmail
                 }, {
-                  placeholder: t('phone'), value: phone, setValue: setPhone, maxLength: 10
+                  placeholder: t('phone'), value: phone, setValue: setPhone
                 }, {
                   placeholder: t('address'), value: title, setValue: setTitle
                 }, {
@@ -114,7 +114,6 @@ const Contactus = () => {
                         hover:border-b-primary transition-all"
                       placeholder={field.placeholder}
                       value={field.value}
-                      maxLength={field.maxLength}
                       onChange={(e) => field.setValue(e.target.value)}
                     />
                   </div>
