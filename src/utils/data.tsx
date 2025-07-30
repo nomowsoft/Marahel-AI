@@ -77,12 +77,12 @@ export const getMenuItem = (t: (key: string) => string): MenuItem[] => [
         name: t('home'),
         href: "",
         isActive: true,
-    },
-    {
-        name: t('services'),
-        href: "seervice",
-        isActive: false,
     }
+    // {
+    //     name: t('services'),
+    //     href: "seervice",
+    //     isActive: false,
+    // }
 ]
 
 export const getProducts = (t: (key: string) => string): Products[] => [
