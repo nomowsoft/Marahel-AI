@@ -156,7 +156,7 @@ const AddValue = ()=>{
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex flex-wrap justify-center gap-6 mx-5 lg:mx-10 mt-10",
                 children: values === null || values === void 0 ? void 0 : values.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "bg-white rounded-xl py-8 px-8 w-full md:w-1/3 lg:w-1/4 flex flex-col items-center text-center",
+                        className: "hover:bg-gradient-to-b hover:text-primary from-blue-100 to-white shadow-xl rounded-2xl py-8 px-8 w-full md:w-1/3 lg:w-1/4 flex flex-col items-center text-center bg-white",
                         "data-aos": "fade-up",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -167,7 +167,7 @@ const AddValue = ()=>{
                                 className: "mt-4"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/home/add_value.tsx",
-                                lineNumber: 16,
+                                lineNumber: 20,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -175,7 +175,7 @@ const AddValue = ()=>{
                                 children: item.title
                             }, void 0, false, {
                                 fileName: "[project]/src/components/home/add_value.tsx",
-                                lineNumber: 17,
+                                lineNumber: 21,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -183,7 +183,7 @@ const AddValue = ()=>{
                                 children: item.description
                             }, void 0, false, {
                                 fileName: "[project]/src/components/home/add_value.tsx",
-                                lineNumber: 18,
+                                lineNumber: 22,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
@@ -375,7 +375,7 @@ const Features = ()=>{
                 className: "flex flex-wrap justify-center gap-6 mx-5 lg:mx-10 mt-10",
                 "data-aos": "fade-up",
                 children: values === null || values === void 0 ? void 0 : values.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "bg-white rounded-xl py-4 px-4 w-full md:w-1/3 lg:w-1/4 flex flex-col",
+                        className: "hover:bg-gradient-to-b hover:text-primary from-blue-100 to-white bg-white shadow-xl rounded-2xl py-4 px-4 w-full md:w-1/3 lg:w-1/4 flex flex-col",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex justify-center",
@@ -895,7 +895,7 @@ const Difference = ()=>{
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex flex-wrap justify-center gap-6 mx-5 lg:mx-10 mt-10",
                 children: difference === null || difference === void 0 ? void 0 : difference.map((item)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "bg-gray-100 rounded-xl py-4 px-4 w-full md:w-1/3 lg:w-1/4 flex flex-col",
+                        className: "bg-gray-100 rounded-xl py-4 px-4 w-full md:w-1/3 lg:w-1/4 flex flex-col group shadow-xl hover:text-primary",
                         "data-aos": "zoom-in",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -906,7 +906,7 @@ const Difference = ()=>{
                                         children: item.title
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/home/difference.tsx",
-                                        lineNumber: 22,
+                                        lineNumber: 25,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -914,16 +914,27 @@ const Difference = ()=>{
                                         alt: item.title,
                                         width: 30,
                                         height: 100,
-                                        className: "mt-4"
+                                        className: "mt-4 transform transition-transform duration-1000 group-hover:translate-x-2 group-hover:hidden block"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/home/difference.tsx",
-                                        lineNumber: 23,
+                                        lineNumber: 26,
+                                        columnNumber: 15
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                        src: item.image_hover,
+                                        alt: item.title,
+                                        width: 30,
+                                        height: 100,
+                                        className: "mt-4 transform transition-transform duration-1000 group-hover:translate-x-2 hidden group-hover:block"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/home/difference.tsx",
+                                        lineNumber: 33,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/home/difference.tsx",
-                                lineNumber: 21,
+                                lineNumber: 24,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -931,7 +942,7 @@ const Difference = ()=>{
                                 children: item.description
                             }, void 0, false, {
                                 fileName: "[project]/src/components/home/difference.tsx",
-                                lineNumber: 25,
+                                lineNumber: 41,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0))
                         ]

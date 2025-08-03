@@ -36,6 +36,7 @@ export type Difference = {
     title: string;
     description: string;
     image: string;
+    image_hover: string;
 }
 
 export type Service = {
