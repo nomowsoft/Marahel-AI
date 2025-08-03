@@ -178,37 +178,43 @@ const getDifference = (t)=>[
             id: 1,
             title: t('title1'),
             description: t('description1'),
-            image: "/difference/users.svg"
+            image: "/difference/users.svg",
+            image_hover: "/difference/users1.svg"
         },
         {
             id: 2,
             title: t('title2'),
             description: t('description2'),
-            image: "/difference/cloud.svg"
+            image: "/difference/cloud.svg",
+            image_hover: "/difference/cloud1.svg"
         },
         {
             id: 3,
             title: t('title3'),
             description: t('description3'),
-            image: "/difference/lin_bar.svg"
+            image: "/difference/lin_bar.svg",
+            image_hover: "/difference/lin_bar1.svg"
         },
         {
             id: 4,
             title: t('title4'),
             description: t('description4'),
-            image: "/difference/Clip.svg"
+            image: "/difference/Clip.svg",
+            image_hover: "/difference/Clip1.svg"
         },
         {
             id: 5,
             title: t('title5'),
             description: t('description6'),
-            image: "/difference/cpu.svg"
+            image: "/difference/cpu.svg",
+            image_hover: "/difference/cpu1.svg"
         },
         {
             id: 6,
             title: t('title6'),
             description: t('description6'),
-            image: "/difference/database.svg"
+            image: "/difference/database.svg",
+            image_hover: "/difference/database1.svg"
         }
     ];
 const getService1 = (t)=>[
