@@ -9,8 +9,21 @@ import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Metadata } from "next";
 
 type Locale = 'en' | 'ar';
+
+export const metadata:Metadata = {
+  metadataBase: new URL("https://marahel.ai"),
+  title: {
+    default: "Marahel Ai",
+    template: `%s | Marahel Ai`
+  },
+  description:"Marahel Ai",
+  verification: {
+    google:"google-site-verification=878787878"
+  },
+}
 
 export default async function RootLayout({ children, params }: { children: React.ReactNode; params: Promise<{ locale: string }>; }) {
   const { locale } = await params;
@@ -20,10 +33,6 @@ export default async function RootLayout({ children, params }: { children: React
   }
   return (
     <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-      <head>
-        <link rel="icon" href="/header/logo.svg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
-      </head>
       <body className="font-doto bg-gray-0 bg-[url('/hero/Home2.svg')] bg-cover bg-no-repeat">
         <NextIntlClientProvider messages={messages}>
           <Header />

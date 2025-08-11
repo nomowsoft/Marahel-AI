@@ -1,9 +1,10 @@
 {
   "/api/contact_us/route": "/api/contact_us",
   "/favicon.ico/route": "/favicon.ico",
+  "/sitemap.xml/route": "/sitemap.xml",
   "/_not-found/page": "/_not-found",
   "/page": "/",
-  "/[locale]/contact_us/page": "/[locale]/contact_us",
   "/[locale]/page": "/[locale]",
-  "/[locale]/seervice/page": "/[locale]/seervice"
+  "/[locale]/seervice/page": "/[locale]/seervice",
+  "/[locale]/contact_us/page": "/[locale]/contact_us"
 }

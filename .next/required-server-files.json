@@ -206,6 +206,7 @@
       "devtoolSegmentExplorer": false,
       "browserDebugInfoInTerminal": false,
       "optimizeRouterScrolling": false,
+      "strictNextHead": true,
       "optimizePackageImports": [
         "lucide-react",
         "date-fns",
