@@ -1,3 +1,10 @@
 {
-  "/[locale]/page": "app/[locale]/page.js"
+  "/api/contact_us/route": "app/api/contact_us/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/page": "app/page.js",
+  "/[locale]/page": "app/[locale]/page.js",
+  "/[locale]/seervice/page": "app/[locale]/seervice/page.js",
+  "/[locale]/contact_us/page": "app/[locale]/contact_us/page.js"
 }
