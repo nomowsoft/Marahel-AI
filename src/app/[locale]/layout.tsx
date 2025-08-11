@@ -21,7 +21,7 @@ export const metadata:Metadata = {
   },
   description:"Marahel Ai",
   verification: {
-    google:"google-site-verification=878787878"
+    google:"i4VQGTbQiBjuPpOvhZCDutFf7"
   },
 }
 
