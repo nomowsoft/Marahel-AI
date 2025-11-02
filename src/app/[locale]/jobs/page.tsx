@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { MapPin, Briefcase } from "lucide-react";
+// import { Badge } from "@/components/ui/badge";
+// import { MapPin, Briefcase } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { getJobs, getBenefits } from "@/utils/data";
+import { TalentCommunityForm } from "@/components/request_job/request_job";
 
 const Jobs = () => {
   const t = useTranslations("jobs");
@@ -53,7 +54,7 @@ const Jobs = () => {
       </section>
 
       {/* Jobs Section */}
-      <section className="py-20 px-4">
+      {/* <section className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground"> {t('jobstitle2')}</h2>
@@ -109,20 +110,18 @@ const Jobs = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-20 px-4 bg-primary/5">
         <div className="container mx-auto text-center max-w-3xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-            {t('notfondjob')}
-          </h2>
           <p className="text-xl text-muted-foreground mb-8">
             {t('notdescription')}
           </p>
-          <Button size="lg" className="text-lg px-8">
+          <TalentCommunityForm />
+          {/* <Button size="lg" className="text-lg px-8">
             {t('cv')}
-          </Button>
+          </Button> */}
         </div>
       </section>
     </div>

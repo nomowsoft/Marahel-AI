@@ -86,7 +86,53 @@
     "Herolabale1": "Hosted in KSA",
     "Herolabale2": "Agentic Innovation",
     "Herolabale3": "Zero Latency",
-    "Herolabale4": "Flexible Delivery"
+    "Herolabale4": "Flexible Delivery",
+    "hero1": {
+      "title": "Seamless Journeys, Powered by Intelligence",
+      "subtitle": "Unify WhatsApp, branch, web & call center into one harmonized experience — guided by AI and human empathy.",
+      "features": {
+        "smartRouting": {
+          "title": "Smart Routing",
+          "description": "AI directs queries to the right expert."
+        },
+        "consistentVoice": {
+          "title": "Consistent Voice",
+          "description": "One brand tone across all channels."
+        },
+        "instantContext": {
+          "title": "Instant Context",
+          "description": "History follows every conversation."
+        }
+      },
+      "cta": {
+        "primary": "Orchestrate Your CX",
+        "secondary": "Talk to Us"
+      },
+      "footer": "PDPL Aligned • SDAIA AI Ethics • Fully Hosted in KSA"
+    },
+    "hero2": {
+      "title": "Sovereign AI Platform at Scale",
+      "subtitle": "Deploy and govern enterprise-ready AI infrastructure — fully hosted in KSA, optimized for control, performance and compliance.",
+      "features": {
+        "dataSovereignty": {
+          "title": "Data Sovereignty",
+          "description": "On-shore, 100% KSA-based infrastructure."
+        },
+        "unifiedPlatform": {
+          "title": "Unified Platform",
+          "description": "Integration of AI engines, orchestration, vector-db, and services."
+        },
+        "performance": {
+          "title": "Enterprise-grade Performance",
+          "description": "Built for scalability, service continuity, and large-scale workflows."
+        }
+      },
+      "cta": {
+        "primary": "Explore the Platform",
+        "secondary": "See Architecture Overview"
+      },
+      "footer": "PDPL Aligned • SDAIA AI Ethics • Fully Hosted in KSA"
+    }
   },
   "Products": {
     "title": "Comprehensive AI Solutions for Every Business Need",
@@ -1413,8 +1459,8 @@
     }
   },
   "about": {
-    "abouttitle": "About Marahel",
-    "aboutdescription": "We are a Saudi company specialized in providing AI and digital transformation solutions.",
+    "abouttitle": "About Marahel Digital",
+    "aboutdescription": "Marahel Digital Company, is a Saudi company leading AI innovation in Saudi Arabia.",
     "story": {
       "title": "Our Story",
       "p1": "Marahel Digital Company founded with an ambitious vision to be the ideal partner for Saudi enterprises on their AI digital transformation & innovation journey. We believe that artificial intelligence is the future, and we strive to empower enterprises to leverage this advanced technology.",
@@ -1542,8 +1588,83 @@
     "requirments": "Requirements",
     "requestjob": "Apply Now",
     "notfondjob": "Didn't find a suitable position?",
-    "notdescription": "We are always looking for exceptional talent. Send us your resume and we’ll contact you when a suitable opportunity becomes available.",
+    "notdescription": "At Marahel, we welcome thinkers, dreamers, and doers. If you’re passionate about innovation and thrive in a collaborative, challenging space — we’d love to have you on our team.",
     "cv": "Send Your Resume",
+    "jobFunctions": {
+      "communication": "Communication",
+      "engineeringProjects": "Engineering & Projects",
+      "finance": "Finance",
+      "humanResources": "Human Resources",
+      "it": "Information Technology",
+      "legal": "Legal",
+      "manufacturingEHSS": "Manufacturing & EHSS",
+      "marketingBusiness": "Marketing/Business Management",
+      "procurement": "Procurement",
+      "salesCustomer": "Sales/Customer Management",
+      "supplyChain": "Supply Chain",
+      "technologyInnovation": "Technology & Innovation"
+    },
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Primary Email",
+    "mobileNumber": "Mobile Number",
+    "nationality": "Nationality",
+    "countryOfResidence": "Country of Residence",
+    "degree": "Degree",
+    "major": "Major",
+    "graduationYear": "Graduation Year",
+    "experienceLevel": "Experience Level",
+    "resume": "Resume / CV",
+    "selectAnOption": "Select an option",
+    "acceptableFiles": "Acceptable file types: DOCX, PDF, Images, and Text files",
+    "selectedFile": "Selected:",
+    "submitApplication": "Submit Application",
+    "submitting": "Submitting...",
+    "countries": {
+      "usa": "United States",
+      "uk": "United Kingdom",
+      "canada": "Canada",
+      "australia": "Australia",
+      "germany": "Germany",
+      "france": "France",
+      "saudiArabia": "Saudi Arabia",
+      "uae": "United Arab Emirates",
+      "india": "India",
+      "china": "China",
+      "japan": "Japan",
+      "brazil": "Brazil",
+      "mexico": "Mexico",
+      "southAfrica": "South Africa",
+      "other": "Other"
+    },
+    "degrees": {
+      "highSchool": "High School Diploma",
+      "associate": "Associate Degree",
+      "bachelor": "Bachelor's Degree",
+      "master": "Master's Degree",
+      "phd": "PhD/Doctorate",
+      "professionalCert": "Professional Certification"
+    },
+    "majors": {
+      "chemicalEngineering": "Chemical Engineering",
+      "mechanicalEngineering": "Mechanical Engineering",
+      "electricalEngineering": "Electrical Engineering",
+      "civilEngineering": "Civil Engineering",
+      "computerScience": "Computer Science",
+      "businessAdmin": "Business Administration",
+      "finance": "Finance",
+      "marketing": "Marketing",
+      "humanResources": "Human Resources",
+      "chemistry": "Chemistry",
+      "other": "Other"
+    },
+    "experience": {
+      "entry": "Entry Level (0-2 years)",
+      "mid": "Mid Level (3-5 years)",
+      "senior": "Senior Level (6-10 years)",
+      "executive": "Executive Level (10+ years)",
+      "freshGraduate": "Fresh Graduate"
+    },
     "jobs": {
       "name": {
         "n1": "Senior AI Engineer",

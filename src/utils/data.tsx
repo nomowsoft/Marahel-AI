@@ -32,6 +32,7 @@ import {
   DataAbout,
   DescriptionTeam,
   ChoseMarahel,
+  HeroData
 } from "./types";
 import {
   Database, 
@@ -63,7 +64,13 @@ import {
   Languages,
   Share2,
   Code,
-  Gpu
+  Gpu,
+  GitBranch,
+  Mic,
+  History,
+  LockKeyhole, 
+  Network,
+  Gauge
 } from "lucide-react";
 import { KnowledgeHubDemo } from "@/components/animations/file2";
 import { ChatbotDemo } from "@/components/animations/file3";
@@ -989,5 +996,74 @@ export const getDataAbout = (t: (key: string) => string): DataAbout[] => [
     certificate: t("dataAbout.3.certificate"),
     experiance: t("dataAbout.3.experiance"),
     image: "/about/JSB.png",
+  },
+];
+
+export const getdatahero = (t: (key: string) => string): HeroData[] => [
+  {
+    id: 1,
+    title: t("hero1.title"),
+    subtitle: t("hero1.subtitle"),
+    features: [
+      {
+        id: 1,
+        title: t("hero1.features.smartRouting.title"),
+        description: t("hero1.features.smartRouting.description"),
+        icon: GitBranch,
+      },
+      {
+        id: 2,
+        title: t("hero1.features.consistentVoice.title"),
+        description: t("hero1.features.consistentVoice.description"),
+        icon: Mic,
+      },
+      {
+        id: 3,
+        title: t("hero1.features.instantContext.title"),
+        description: t("hero1.features.instantContext.description"),
+        icon: History,
+      },
+    ],
+    cta: [
+      {
+        id: 1,
+        primary: t("hero1.cta.primary"),
+        secondary: t("hero1.cta.secondary"),
+      },
+    ],
+    footer: t("hero1.footer"),
+  },
+  {
+    id: 2,
+    title: t("hero2.title"),
+    subtitle: t("hero2.subtitle"),
+    features: [
+      {
+        id: 1,
+        title: t("hero2.features.dataSovereignty.title"),
+        description: t("hero2.features.dataSovereignty.description"),
+        icon: LockKeyhole,
+      },
+      {
+        id: 2,
+        title: t("hero2.features.unifiedPlatform.title"),
+        description: t("hero2.features.unifiedPlatform.description"),
+        icon: Network,
+      },
+      {
+        id: 3,
+        title: t("hero2.features.performance.title"),
+        description: t("hero2.features.performance.description"),
+        icon: Gauge,
+      },
+    ],
+    cta: [
+      {
+        id: 1,
+        primary: t("hero2.cta.primary"),
+        secondary: t("hero2.cta.secondary"),
+      },
+    ],
+    footer: t("hero2.footer"),
   },
 ];

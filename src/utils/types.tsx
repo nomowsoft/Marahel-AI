@@ -240,3 +240,24 @@ export type ChoseMarahel = {
   description: string;
   icon: LucideIcon;
 }
+
+type Features = {
+  id: number;
+  title: string;
+  description: string;
+  icon: LucideIcon
+}
+
+type CTA = {
+  id: number;
+  primary: string;
+  secondary: string;
+}
+export type HeroData = {
+  id: number;
+  title: string;
+  subtitle: string;
+  features: Features[];
+  cta: CTA[];
+  footer: string;
+}
