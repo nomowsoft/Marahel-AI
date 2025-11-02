@@ -17,7 +17,7 @@ const About = () => {
       {/* Hero Section */}
       <section className="relative py-32 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="max-w-5xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-primary">
               {t('abouttitle')}
             </h1>
