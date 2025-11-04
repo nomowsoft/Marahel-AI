@@ -1,73 +1,140 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Zap } from "lucide-react";
-import { getNodes } from "@/utils/data";
 import { useTranslations } from "next-intl";
+import { getNodes } from "@/utils/data";
 
 export const SystemArchitecture = () => {
-  const t = useTranslations('Nodes');
-  const values = getNodes(t) 
-  const [activeConnection, setActiveConnection] = useState(0);
+  const t = useTranslations("Nodes");
+  const values = getNodes(t);
 
-  const connections = [
-    { from: 0, to: 1 },
-    { from: 1, to: 3 },
-    { from: 3, to: 2 },
-    { from: 2, to: 0 },
-    { from: 0, to: 3 },
-    { from: 1, to: 2 },
-  ];
+  // نصف القطر يعتمد على أصغر بعد بين العرض والارتفاع
+  const radius = typeof window !== "undefined" ? Math.min(window.innerWidth, window.innerHeight) * 0.3 : 200;
+  const speed = 0.002;
+  const [progress, setProgress] = useState(0);
+ const animationRef = useRef<number | null>(null);
+
+  const getNodePosition = (index: number) => {
+    const angle = (index / values.length) * 2 * Math.PI;
+    return {
+      x: radius * Math.cos(angle),
+      y: radius * Math.sin(angle),
+    };
+  };
+
+  const animate = () => {
+    setProgress((prev) => (prev + speed) % 1);
+    animationRef.current = requestAnimationFrame(animate);
+  };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveConnection((prev) => (prev + 1) % connections.length);
-    }, 1500);
-    return () => clearInterval(interval);
-  }, [connections.length]);
+  animationRef.current = requestAnimationFrame(animate);
+  return () => {
+    if (animationRef.current !== null) {
+      cancelAnimationFrame(animationRef.current);
+    }
+  };
+}, []);
+
+  const totalSegments = values.length;
+  const segmentProgress = progress * totalSegments;
+  const stepIndex = Math.floor(segmentProgress) % values.length;
+  const nextStepIndex = (stepIndex + 1) % values.length;
+  const localProgress = segmentProgress - Math.floor(segmentProgress);
+
+  const fromPos = getNodePosition(stepIndex);
+  const toPos = getNodePosition(nextStepIndex);
+
+  const pointX = fromPos.x + (toPos.x - fromPos.x) * localProgress;
+  const pointY = fromPos.y + (toPos.y - fromPos.y) * localProgress;
 
   return (
-    <div className="relative w-full h-auto md:h-[600px] bg-card/50 backdrop-blur-sm rounded-2xl p-6 md:p-8 overflow-hidden flex flex-col items-center justify-center">
-      {/* Center Hub (Hidden on small screens) */}
-      <div className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-gradient-to-br from-primary via-secondary to-accent items-center justify-center">
-        <div className="w-20 h-20 rounded-full bg-card/90 backdrop-blur-sm flex items-center justify-center">
-          <Zap className="w-10 h-10 text-primary" />
+    <div className="relative flex items-center justify-center w-full h-[60vh] md:h-[70vh] lg:h-[80vh] bg-card/50 rounded-2xl overflow-hidden">
+      {/* المركز */}
+      <div className="absolute w-20 sm:w-28 h-20 sm:h-28 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg">
+        <div className="w-16 sm:w-24 h-16 sm:h-24 bg-card rounded-full flex items-center justify-center">
+          <Zap className="w-6 sm:w-10 h-6 sm:h-10 text-primary" />
         </div>
       </div>
 
-      {/* Responsive Node Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 md:gap-12 w-full md:w-[80%] justify-items-center md:absolute md:inset-0 md:m-auto">
+      {/* الخطوط الخلفية والتوهج */}
+      <svg className="absolute w-full h-full" viewBox="-400 -400 800 800">
+        <defs>
+          <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="hsl(var(--primary))" />
+            <stop offset="50%" stopColor="hsl(var(--secondary))" />
+            <stop offset="100%" stopColor="hsl(var(--accent))" />
+          </linearGradient>
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="4" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        {values.map((_, idx) => {
+          const nextIdx = (idx + 1) % values.length;
+          const start = getNodePosition(idx);
+          const end = getNodePosition(nextIdx);
+
+          let lineProgress = 1;
+          if (idx === stepIndex) lineProgress = localProgress;
+          if (idx > stepIndex) lineProgress = 0;
+
+          const x2 = start.x + (end.x - start.x) * Math.min(lineProgress, 1);
+          const y2 = start.y + (end.y - start.y) * Math.min(lineProgress, 1);
+
+          return (
+            <line
+              key={idx}
+              x1={start.x}
+              y1={start.y}
+              x2={x2}
+              y2={y2}
+              stroke="url(#glowGradient)"
+              strokeWidth={4}
+              strokeLinecap="round"
+              filter="url(#glow)"
+              opacity={0.9}
+            />
+          );
+        })}
+      </svg>
+
+      {/* النودات */}
+      <div className="absolute w-full h-full flex items-center justify-center">
         {values.map((node, idx) => {
           const Icon = node.icon;
-          const isActive =
-            connections[activeConnection]?.from === idx ||
-            connections[activeConnection]?.to === idx;
-
-          // Positions for large screens only
-          const positions = [
-            "md:absolute md:top-[20%] md:left-[25%]",
-            "md:absolute md:top-[20%] md:right-[25%]",
-            "md:absolute md:bottom-[20%] md:left-[25%]",
-            "md:absolute md:bottom-[20%] md:right-[25%]",
-          ];
+          const { x, y } = getNodePosition(idx);
+          const isActive = idx === stepIndex;
 
           return (
             <div
               key={idx}
-              className={`flex flex-col items-center justify-center transition-all duration-500 ${
-                isActive ? "scale-110" : ""
-              } ${positions[idx] || ""}`}
+              className="absolute flex flex-col items-center transition-all duration-500"
+              style={{ transform: `translate(${x}px, ${y}px)` }}
             >
               <div
-                className={`w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br from-${node.color}/20 to-${node.color}/5 border-2 ${
-                  isActive ? `border-${node.color}` : "border-border"
-                } flex items-center justify-center transition-all duration-500 relative`}
+                className={`w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 rounded-2xl border-2 flex items-center justify-center bg-gradient-to-br from-${node.color}/20 to-${node.color}/5 transition-all duration-500 ${
+                  isActive ? `border-${node.color} scale-110 shadow-lg` : "border-border"
+                }`}
               >
-                <Icon className={`w-8 h-8 sm:w-10 sm:h-10 text-${node.color}`} />
+                <Icon
+                  className={`w-6 sm:w-8 md:w-10 ${
+                    isActive ? `text-${node.color}` : "text-muted-foreground"
+                  }`}
+                />
                 {isActive && (
                   <div className="absolute inset-0 rounded-2xl bg-primary/20 animate-ping"></div>
                 )}
               </div>
-              <p className="text-sm sm:text-base text-center mt-2 text-muted-foreground font-medium">
+              <p
+                className={`text-xs sm:text-sm md:text-base mt-1 sm:mt-2 ${
+                  isActive ? "text-primary font-bold" : "text-muted-foreground"
+                }`}
+              >
                 {node.label}
               </p>
             </div>
@@ -75,42 +142,17 @@ export const SystemArchitecture = () => {
         })}
       </div>
 
-      {/* Connection Lines (Only on large screens) */}
-      <svg className="hidden md:block absolute inset-0 w-full h-full pointer-events-none">
-        <defs>
-          <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="0.5" />
-            <stop offset="50%" stopColor="hsl(var(--secondary))" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="hsl(var(--accent))" stopOpacity="0.5" />
-          </linearGradient>
-        </defs>
-        {connections.map((_, idx) => {
-          const isActive = idx === activeConnection;
-          return (
-            <line
-              key={idx}
-              x1="50%"
-              y1="50%"
-              x2="50%"
-              y2="50%"
-              stroke={isActive ? "url(#lineGradient)" : "hsl(var(--border))"}
-              strokeWidth={isActive ? "3" : "1"}
-              strokeDasharray={isActive ? "0" : "5,5"}
-              className="transition-all duration-500"
-              opacity={isActive ? "1" : "0.3"}
-            />
-          );
-        })}
-      </svg>
+      {/* النقطة المتحركة */}
+      <div
+        className="absolute w-3 sm:w-5 h-3 sm:h-5 rounded-full bg-primary shadow-xl transition-all duration-50"
+        style={{ transform: `translate(${pointX}px, ${pointY}px)` }}
+      ></div>
 
-      {/* Data Flow Indicator */}
-      <div className="absolute top-4 right-4 flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 animate-fade-in">
+      {/* مؤشر النص */}
+      <div className="absolute top-6 flex items-center left-10 gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30">
         <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
-        <span className="text-xs sm:text-sm text-primary font-bold">{t('transfeer')}</span>
+        <span className="text-sm sm:text-base text-primary font-bold">{t("transfeer")}</span>
       </div>
-
-      {/* Background Grid */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
     </div>
   );
 };

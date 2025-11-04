@@ -20,7 +20,7 @@ export const Challenges: React.FC = () => {
             {t('p')}
           </p>
         </div>
-        <div className="w-full h-[500px] mb-16 animate-fade-in" style={{ animationDelay: "0.2s" }}>
+        <div className="w-full mb-16 animate-fade-in" style={{ animationDelay: "0.2s" }}>
           <SystemArchitecture />
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
