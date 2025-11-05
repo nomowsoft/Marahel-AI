@@ -88,8 +88,8 @@
     "Herolabale3": "Zero Latency",
     "Herolabale4": "Flexible Delivery",
     "hero1": {
-      "title": "Seamless Journeys, Powered by Intelligence",
-      "subtitle": "Unify WhatsApp, branch, web & call center into one harmonized experience — guided by AI and human empathy.",
+      "title": "Seamless Customer Journeys Powered by Intelligence",
+      "subtitle": "Unify WhatsApp, Telegram, Web & call center into one harmonized Customer Experience - guided by AI and human empathy",
       "features": {
         "smartRouting": {
           "title": "Smart Routing",
@@ -106,7 +106,7 @@
       },
       "cta": {
         "primary": "Orchestrate Your CX",
-        "secondary": "Talk to Us"
+        "secondary": "Schedula A Walkthrough"
       },
       "footer": "PDPL Aligned • SDAIA AI Ethics • Fully Hosted in KSA"
     },
