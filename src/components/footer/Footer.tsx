@@ -2,11 +2,12 @@ import React from "react";
 import { MapPin, FileText } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { getCompany, getProductsFooter, getSolutions } from "@/utils/data";
 
 
 export const Footer: React.FC = () => {
+  const activelocal = useLocale();
   const t = useTranslations('Footer');
   const productsfooter = getProductsFooter(t);
   const solutions = getSolutions(t);
@@ -50,10 +51,10 @@ export const Footer: React.FC = () => {
           <div className="space-y-4">
             <h3 className="font-semibold text-foreground">{t('products')}</h3>
             <ul className="space-y-2 text-sm">
-              {solutions.map((item) => (
+              {productsfooter.map((item) => (
                 <li key={item.name}>
                   <Link
-                    href="#"
+                    href={`/${activelocal}/products/${item.id}`}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     {item.name}
@@ -67,11 +68,11 @@ export const Footer: React.FC = () => {
           <div className="space-y-4">
             <h3 className="font-semibold text-foreground">{t('solutions')}</h3>
             <ul className="space-y-2 text-sm">
-              {productsfooter.map(
+              {solutions.map(
                 (solution) => (
                   <li key={solution.name}>
                     <Link
-                      href="#"
+                      href={`/${activelocal}/solutions`}
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
                       {solution.name}
@@ -89,7 +90,7 @@ export const Footer: React.FC = () => {
               {company.map((item) => (
                 <li key={item.name}>
                   <Link
-                    href="#"
+                    href={`/${activelocal}${item.href}`}
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     {item.name}

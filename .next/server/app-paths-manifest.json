@@ -9,5 +9,7 @@
   "/[locale]/solutions/page": "app/[locale]/solutions/page.js",
   "/[locale]/visions/page": "app/[locale]/visions/page.js",
   "/_not-found/page": "app/_not-found/page.js",
+  "/api/contact/route": "app/api/contact/route.js",
+  "/api/request_job/route": "app/api/request_job/route.js",
   "/favicon.ico/route": "app/favicon.ico/route.js"
 }

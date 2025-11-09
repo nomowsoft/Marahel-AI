@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Key, Play } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 import React from "react";
 import { gethero } from "@/utils/data";
 import { useTranslations, useLocale } from "next-intl";

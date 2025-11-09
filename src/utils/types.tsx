@@ -45,14 +45,18 @@ export type Stat = {
 }
 
 export type Company = {
+  id:  number;
+  href: string;
   name: string;
 }
 
 export type Solutions = {
+  id:number;
   name: string;
 }
 
 export type ProductsFooter = {
+  id: number;
   name: string;
 }
 
