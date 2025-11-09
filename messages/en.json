@@ -206,10 +206,43 @@
     "title1": "Opening Session",
     "title2": "Artificial Intelligence Workshop",
     "title3": "Panel Discussion",
-    "location1": "Main Hall",
-    "location2": "Innovation Hall",
-    "location3": "Conference Hall"
+    "label1": "Location Engine",
+    "label2": "Optimal Route Engine",
+    "label3": "Site Planner"
   },
+  "knowledgeHub": {
+    "title": "Knowledge Hub (Demo)",
+    "subtitle": "The bot uploads files, analyzes them, and automatically displays questions and answers.",
+    "stop": "Stop Demo",
+    "start": "Start Demo",
+    "botAddFiles": "📂 The bot is now automatically adding files...",
+    "uploading": "Uploading file: {filename}",
+    "uploaded": "File uploaded: {filename}",
+    "analyzing": "Analyzing files and preparing the summary...",
+    "analysisDone": "Analysis complete. Here’s a brief summary.",
+    "restart": "Restarting the demo in a few seconds...",
+    "progress": "Uploading... {percent}%",
+    "demoFiles": ["Sales_Report_Q3.pdf", "Customer_Analysis.xlsx", "Operations_File.docx"],
+    "qaPairs": [
+      {
+        "q": "What are the key findings from the files?",
+        "a": "Main findings: Sales increased by 14% in Q3, and customer satisfaction improved by 0.4 points."
+      },
+      {
+        "q": "Are there any duplicate records?",
+        "a": "Yes, a small duplication was detected in 8% of the records, and cleanup was recommended."
+      },
+      {
+        "q": "Which regions achieved the highest sales?",
+        "a": "The Eastern Region and urban areas of Riyadh recorded the highest sales during the period."
+      },
+      {
+        "q": "Is there a clear trend regarding the product?",
+        "a": "Yes, digital products and services related to technical support showed greater growth than physical products."
+      }
+    ]
+  },
+
   "PathStep": {
     "label1": "Main Entrance",
     "label2": "Corridor 1",
@@ -1579,6 +1612,14 @@
     }
   },
   "jobs": {
+    "fileTooLarge": "The attached file exceeds the size limit. Please attach another file.",
+    "invalidFileType": "Invalid file type. Please upload DOCX, PDF, Image, or Text files.",
+    "fieldRequired": "All feild required",
+    "invalidEmail": "Invalid email format. Example: example@email.com",
+    "invalidPhone": "Invalid phone number.",
+    "resumeRequired": "A Resume is required.",
+    "formSuccess": "Sent successfully",
+    "formError": "An error occurred while sending data",
     "jobstitle": "Join Our Team",
     "jobsdescription": "Be part of shaping the future with Artificial Intelligence. We’re looking for top talent to join our growing team.",
     "jobstitle1": "Why Join Us?",
@@ -1765,6 +1806,12 @@
     }
   },
   "contactus": {
+    "errorFieldRequired": "All fields are required",
+    "errorEmail": "Invalid email format. Example: example@email.com",
+    "errorPhone": "Invalid phone number.",
+    "successData": "Sent successfully",
+    "errorData": "An error occurred while sending data",
+    "errorServer": "A server connection error occurred",
     "title": "Contact Us",
     "description": "We’re here to help you on your journey toward digital transformation with AI. Get in touch with us today to discuss your needs.",
     "contactusinfo": {

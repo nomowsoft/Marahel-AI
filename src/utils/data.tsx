@@ -264,20 +264,53 @@ export const getStats = (t: (key: string) => string): Stat[] => [
 ];
 
 export const getCompany = (t: (key: string) => string): Company[] => [
-  {name: t('name1')},
-  {name: t('name2')},
-  {name: t('name3')},
-];
-export const getSolutions = (t: (key: string) => string): Solutions[] => [
-  {name: t('name4')},
-  {name: t('name5')},
-  {name: t('name6')},
+  {
+    id: 1,
+    href: "/about",
+    name: t('name1')
+  },
+  {
+    id: 2,
+    href: "/jobs",
+    name: t('name2')
+  },
+  {
+    id: 3,
+    href: "/contactus",
+    name: t('name3')
+  },
 ];
 export const getProductsFooter = (t: (key: string) => string): ProductsFooter[] => [
-  {name: t('name7')},
-  {name: t('name8')},
-  {name: t('name9')},
-  {name: t('name10')},
+  {
+    id:1,
+    name: t('name4')
+  },
+  {
+    id:2,
+    name: t('name5')
+  },
+  {
+    id:3,
+    name: t('name6')
+  },
+];
+export const getSolutions = (t: (key: string) => string): Solutions[] => [
+  {
+    id: 1,
+    name: t('name7')
+  },
+  {
+    id: 2,
+    name: t('name8')
+  },
+  {
+    id: 3,
+    name: t('name9')
+  },
+  {
+    id: 4,
+    name: t('name10')
+  },
 ];
 
 export const getNodes = (t: (key: string) => string): Nodes[] =>[

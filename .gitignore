@@ -53,6 +53,8 @@ Generated\ Files/
 [Bb]uild[Ll]og.*
 *.trx
 
+.env.local
+
 # NUnit
 *.VisualState.xml
 TestResult.xml

@@ -1,16 +1,8 @@
-"use client"
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import * as z from "zod";
+"use client";
+
+import { useState } from "react";
+import { toast } from "react-toastify";
 import { Button } from "@/components/ui/button";
-import {
-    Form,
-    FormControl,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import {
     Select,
@@ -19,7 +11,6 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 
 const MAX_FILE_SIZE = 5000000; // 5MB
@@ -32,40 +23,145 @@ const ACCEPTED_FILE_TYPES = [
     "text/plain",
 ];
 
-const formSchema = z.object({
-    jobFunction: z.string().min(1, { message: "Job Function is required" }),
-    firstName: z.string()
-        .trim()
-        .min(1, { message: "First Name is required" })
-        .max(100, { message: "First Name must be less than 100 characters" }),
-    lastName: z.string()
-        .trim()
-        .min(1, { message: "Last Name is required" })
-        .max(100, { message: "Last Name must be less than 100 characters" }),
-    email: z.string()
-        .trim()
-        .email({ message: "Invalid email address" })
-        .max(255, { message: "Email must be less than 255 characters" }),
-    mobileNumber: z.string()
-        .trim()
-        .min(1, { message: "Mobile Number is required" })
-        .regex(/^[0-9+\-\s()]+$/, { message: "Invalid mobile number format" }),
-    nationality: z.string().min(1, { message: "Nationality is required" }),
-    countryOfResidence: z.string().min(1, { message: "Country of Residence is required" }),
-    degree: z.string().min(1, { message: "Your Degree is required" }),
-    major: z.string().min(1, { message: "Your Major is required" }),
-    graduationYear: z.string().optional(),
-    experienceLevel: z.string().min(1, { message: "Level of Experience is required" }),
-});
+export default function TalentCommunityForm() {
+    const t = useTranslations("jobs");
+    const locale = useLocale();
 
-type FormValues = z.infer<typeof formSchema>;
-
-export function TalentCommunityForm() {
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        mobileNumber: "",
+        nationality: "",
+        countryOfResidence: "",
+        degree: "",
+        major: "",
+        graduationYear: "",
+        experienceLevel: "",
+    });
     const [resumeFile, setResumeFile] = useState<File | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const t = useTranslations("jobs");
-    const localActive = useLocale();
 
+    // تغيير الحقول النصية
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    // تغيير الحقول المنسدلة
+    const handleSelectChange = (name: string, value: string) => {
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    // رفع الملفات
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) return;
+
+        if (file.size > MAX_FILE_SIZE) {
+            toast.error(t("fileTooLarge"));
+            e.target.value = "";
+            return;
+        }
+
+        if (!ACCEPTED_FILE_TYPES.includes(file.type)) {
+            toast.error(t("invalidFileType"));
+            e.target.value = "";
+            return;
+        }
+
+        setResumeFile(file);
+    };
+
+    // إرسال النموذج
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const {
+            firstName,
+            lastName,
+            email,
+            mobileNumber,
+            nationality,
+            countryOfResidence,
+            degree,
+            major,
+            experienceLevel,
+        } = formData;
+
+        if (
+            !firstName ||
+            !lastName ||
+            !email ||
+            !mobileNumber ||
+            !nationality ||
+            !countryOfResidence ||
+            !degree ||
+            !major ||
+            !experienceLevel
+        ) {
+            toast.error(t("fieldRequired"));
+            return;
+        }
+
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            toast.error(t("invalidEmail"));
+            return;
+        }
+
+        if (!/^[0-9+\-\s()]+$/.test(mobileNumber)) {
+            toast.error(t("invalidPhone"));
+            return;
+        }
+
+        if (!resumeFile) {
+            toast.error(t("resumeRequired"));
+            return;
+        }
+
+        setIsSubmitting(true);
+
+        try {
+            const formDataToSend = new FormData();
+            Object.entries(formData).forEach(([key, value]) => {
+                formDataToSend.append(key, value);
+            });
+            formDataToSend.append("resume", resumeFile);
+
+            const res = await fetch("/api/request_job", {
+                method: "POST",
+                body: formDataToSend,
+            });
+
+            const result = await res.json();
+
+            if (result.success) {
+                toast.success(t("formSuccess"));
+                setFormData({
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    mobileNumber: "",
+                    nationality: "",
+                    countryOfResidence: "",
+                    degree: "",
+                    major: "",
+                    graduationYear: "",
+                    experienceLevel: "",
+                });
+                setResumeFile(null);
+                const fileInput = document.getElementById("resume") as HTMLInputElement;
+                if (fileInput) fileInput.value = "";
+            } else {
+                toast.error(result.message || t("formError"));
+            }
+        } catch {
+            toast.error(t("formError"));
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
+    // البيانات للقوائم المنسدلة
     const countries = [
         t("countries.usa"),
         t("countries.uk"),
@@ -83,7 +179,6 @@ export function TalentCommunityForm() {
         t("countries.southAfrica"),
         t("countries.other"),
     ];
-
     const degrees = [
         t("degrees.highSchool"),
         t("degrees.associate"),
@@ -92,7 +187,6 @@ export function TalentCommunityForm() {
         t("degrees.phd"),
         t("degrees.professionalCert"),
     ];
-
     const majors = [
         t("majors.chemicalEngineering"),
         t("majors.mechanicalEngineering"),
@@ -104,9 +198,8 @@ export function TalentCommunityForm() {
         t("majors.marketing"),
         t("majors.humanResources"),
         t("majors.chemistry"),
-        t("majors.other"),
+        t("majors.other")
     ];
-
     const experienceLevels = [
         t("experience.entry"),
         t("experience.mid"),
@@ -116,329 +209,169 @@ export function TalentCommunityForm() {
     ];
     const generateYears = () => {
         const currentYear = new Date().getFullYear();
-        const years = [];
-        for (let i = currentYear; i >= currentYear - 40; i--) {
-            years.push(i.toString());
-        }
-        return years;
+        return Array.from({ length: 40 }, (_, i) => (currentYear - i).toString());
     };
-
-    const form = useForm<FormValues>({
-        resolver: zodResolver(formSchema),
-        defaultValues: {
-            jobFunction: "",
-            firstName: "",
-            lastName: "",
-            email: "",
-            mobileNumber: "",
-            nationality: "",
-            countryOfResidence: "",
-            degree: "",
-            major: "",
-            graduationYear: "",
-            experienceLevel: "",
-        },
-    });
-
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        // const file = e.target.files?.[0];
-        // if (file) {
-        //   if (file.size > MAX_FILE_SIZE) {
-        //     toast.error("The attached file exceeds the size limit. Please attach another file.");
-        //     e.target.value = "";
-        //     return;
-        //   }
-        //   if (!ACCEPTED_FILE_TYPES.includes(file.type)) {
-        //     toast.error("Invalid file type. Please upload DOCX, PDF, Image, or Text files.");
-        //     e.target.value = "";
-        //     return;
-        //   }
-        //   setResumeFile(file);
-        // }
-    };
-
-    async function onSubmit(values: FormValues) {
-        // if (!resumeFile) {
-        //   toast.error("A Resume is required.");
-        //   return;
-        // }
-
-        setIsSubmitting(true);
-
-        try {
-            // Simulate form submission
-            await new Promise(resolve => setTimeout(resolve, 1500));
-
-            //   console.log("Form submitted:", { ...values, resume: resumeFile.name });
-            //   toast.success("Thank you. Your information has been submitted.");
-
-            // Reset form
-            form.reset();
-            setResumeFile(null);
-            const fileInput = document.getElementById("resume") as HTMLInputElement;
-            if (fileInput) fileInput.value = "";
-        } catch (error) {
-            //   toast.error("There was an error submitting the form. Please try again later.");
-        } finally {
-            setIsSubmitting(false);
-        }
-    }
 
     return (
-        <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 text-start">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <FormField
-                        control={form.control}
-                        name="firstName"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel className="text-foreground">
-                                    {t('firstName')}<span className="text-destructive">*</span>
-                                </FormLabel>
-                                <FormControl>
-                                    <Input placeholder={t('firstName')} {...field} className="bg-background border border-primary h-12 rounded-xl hover:border-accent text-white" />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={form.control}
-                        name="lastName"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel className="text-foreground">
-                                    {t('lastName')}<span className="text-destructive">*</span>
-                                </FormLabel>
-                                <FormControl>
-                                    <Input placeholder={t('lastName')} {...field} className="bg-background border border-primary h-12 rounded-xl hover:border-accent text-white" />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                    <FormField
-                        control={form.control}
-                        name="email"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel className="text-foreground">
-                                    {t('email')}<span className="text-destructive">*</span>
-                                </FormLabel>
-                                <FormControl>
-                                    <Input type="email" placeholder={t('email')} {...field} className="bg-background border border-primary h-12 rounded-xl hover:border-accent text-white" />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
+        <form onSubmit={handleSubmit} className="space-y-6 text-start">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <Input
+                    name="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    placeholder={t("firstName")}
+                    className="bg-background border border-primary h-12 rounded-xl text-white"
+                />
+                <Input
+                    name="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    placeholder={t("lastName")}
+                    className="bg-background border border-primary h-12 rounded-xl text-white"
+                />
+                <Input
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder={t("email")}
+                    className="bg-background border border-primary h-12 rounded-xl text-white"
+                />
+                <Input
+                    name="mobileNumber"
+                    value={formData.mobileNumber}
+                    onChange={handleChange}
+                    placeholder={t("mobileNumber")}
+                    className="bg-background border border-primary h-12 rounded-xl text-white"
+                />
 
-                    <FormField
-                        control={form.control}
-                        name="mobileNumber"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel className="text-foreground">
-                                    {t('mobileNumber')}<span className="text-destructive">*</span>
-                                </FormLabel>
-                                <FormControl>
-                                    <Input placeholder={t('mobileNumber')} {...field} className="bg-background border border-primary h-12 rounded-xl hover:border-accent text-white" />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-
-                    <FormField
-                        control={form.control}
-                        name="nationality"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel className="text-foreground">
-                                    {t('nationality')} <span className="text-destructive">*</span>
-                                </FormLabel>
-                                <Select onValueChange={field.onChange} value={field.value} dir={`${localActive === 'ar' ? 'rtl' : 'ltr'}`}>
-                                    <FormControl>
-                                        <SelectTrigger className="bg-background border border-primary h-12 rounded-xl hover:border-accent text-white">
-                                            <SelectValue placeholder={t('selectAnOption')} />
-                                        </SelectTrigger>
-                                    </FormControl>
-                                    <SelectContent className="bg-popover z-50">
-                                        {countries.map((country) => (
-                                            <SelectItem key={country} value={country}>
-                                                {country}
-                                            </SelectItem>
-                                        ))}
-                                    </SelectContent>
-                                </Select>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-
-                    <FormField
-                        control={form.control}
-                        name="countryOfResidence"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel className="text-foreground">
-                                    {t('countryOfResidence')} <span className="text-destructive">*</span>
-                                </FormLabel>
-                                <Select onValueChange={field.onChange} value={field.value} dir={`${localActive === 'ar' ? 'rtl' : 'ltr'}`}>
-                                    <FormControl>
-                                        <SelectTrigger className="bg-background border border-primary h-12 rounded-xl hover:border-accent text-white">
-                                            <SelectValue placeholder={t('selectAnOption')} />
-                                        </SelectTrigger>
-                                    </FormControl>
-                                    <SelectContent className="bg-popover z-50">
-                                        {countries.map((country) => (
-                                            <SelectItem key={country} value={country}>
-                                                {country}
-                                            </SelectItem>
-                                        ))}
-                                    </SelectContent>
-                                </Select>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-
-                    <FormField
-                        control={form.control}
-                        name="degree"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel className="text-foreground">
-                                    {t('degree')} <span className="text-destructive">*</span>
-                                </FormLabel>
-                                <Select onValueChange={field.onChange} value={field.value} dir={`${localActive === 'ar' ? 'rtl' : 'ltr'}`}>
-                                    <FormControl>
-                                        <SelectTrigger className="bg-background border border-primary h-12 rounded-xl hover:border-accent text-white">
-                                            <SelectValue placeholder={t('selectAnOption')} />
-                                        </SelectTrigger>
-                                    </FormControl>
-                                    <SelectContent className="bg-popover z-50">
-                                        {degrees.map((degree) => (
-                                            <SelectItem key={degree} value={degree}>
-                                                {degree}
-                                            </SelectItem>
-                                        ))}
-                                    </SelectContent>
-                                </Select>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-
-                    <FormField
-                        control={form.control}
-                        name="major"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel className="text-foreground">
-                                    {t('major')} <span className="text-destructive">*</span>
-                                </FormLabel>
-                                <Select onValueChange={field.onChange} value={field.value} dir={`${localActive === 'ar' ? 'rtl' : 'ltr'}`}>
-                                    <FormControl>
-                                        <SelectTrigger className="bg-background border border-primary h-12 rounded-xl hover:border-accent text-white">
-                                            <SelectValue placeholder={t('selectAnOption')} />
-                                        </SelectTrigger>
-                                    </FormControl>
-                                    <SelectContent className="bg-popover z-50">
-                                        {majors.map((major) => (
-                                            <SelectItem key={major} value={major}>
-                                                {major}
-                                            </SelectItem>
-                                        ))}
-                                    </SelectContent>
-                                </Select>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-
-                    <FormField
-                        control={form.control}
-                        name="graduationYear"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel className="text-foreground">{t('graduationYear')}</FormLabel>
-                                <Select onValueChange={field.onChange} value={field.value} dir={`${localActive === 'ar' ? 'rtl' : 'ltr'}`}>
-                                    <FormControl>
-                                        <SelectTrigger className="bg-background border border-primary h-12 rounded-xl hover:border-accent text-white">
-                                            <SelectValue placeholder={t('selectAnOption')} />
-                                        </SelectTrigger>
-                                    </FormControl>
-                                    <SelectContent className="bg-popover z-50 max-h-[300px]">
-                                        {generateYears().map((year) => (
-                                            <SelectItem key={year} value={year}>
-                                                {year}
-                                            </SelectItem>
-                                        ))}
-                                    </SelectContent>
-                                </Select>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-
-                    <FormField
-                        control={form.control}
-                        name="experienceLevel"
-                        render={({ field }) => (
-                            <FormItem>
-                                <FormLabel className="text-foreground">
-                                    {t('experienceLevel')} <span className="text-destructive">*</span>
-                                </FormLabel>
-                                <Select onValueChange={field.onChange} value={field.value} dir={`${localActive === 'ar' ? 'rtl' : 'ltr'}`}>
-                                    <FormControl>
-                                        <SelectTrigger className="bg-background border border-primary h-12 rounded-xl hover:border-accent text-white">
-                                            <SelectValue placeholder={t('selectAnOption')} />
-                                        </SelectTrigger>
-                                    </FormControl>
-                                    <SelectContent className="bg-popover z-50">
-                                        {experienceLevels.map((level) => (
-                                            <SelectItem key={level} value={level}>
-                                                {level}
-                                            </SelectItem>
-                                        ))}
-                                    </SelectContent>
-                                </Select>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
-                </div>
-                <div className="space-y-2">
-                    <FormLabel className="text-foreground">
-                        {t('resume')} <span className="text-destructive">*</span>
-                    </FormLabel>
-                    <Input
-                        id="resume"
-                        type="file"
-                        onChange={handleFileChange}
-                        accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png"
-                        className="bg-background cursor-pointer border border-primary h-12 rounded-xl hover:border-accent text-white"
-                    />
-                    <p className="text-sm text-white">
-                        {t('acceptableFiles')}
-                    </p>
-                    {resumeFile && (
-                        <p className="text-sm text-accent">
-                            {t('selectedFile')} {resumeFile.name}
-                        </p>
-                    )}
-                </div>
-
-                <Button
-                    type="submit"
-                    className="w-full bg-primary hover:bg-primary/90 border border-primary h-12 rounded-xl hover:border-accent text-xl"
-                    disabled={isSubmitting}
+                {/* Selects */}
+                <Select
+                    onValueChange={(val) => handleSelectChange("nationality", val)}
+                    value={formData.nationality}
+                    dir={locale === "ar" ? "rtl" : "ltr"}
                 >
-                     {isSubmitting ? t('submitting') : t('submitApplication')}
-                </Button>
-            </form>
-        </Form>
+                    <SelectTrigger className="bg-background border border-primary h-12 rounded-xl text-white">
+                        <SelectValue placeholder={t("nationality")} />
+                    </SelectTrigger>
+                    <SelectContent>
+                        {countries.map((c) => (
+                            <SelectItem key={c} value={c}>
+                                {c}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
+
+                <Select
+                    onValueChange={(val) => handleSelectChange("countryOfResidence", val)}
+                    value={formData.countryOfResidence}
+                    dir={locale === "ar" ? "rtl" : "ltr"}
+                >
+                    <SelectTrigger className="bg-background border border-primary h-12 rounded-xl text-white">
+                        <SelectValue placeholder={t("countryOfResidence")} />
+                    </SelectTrigger>
+                    <SelectContent>
+                        {countries.map((c) => (
+                            <SelectItem key={c} value={c}>
+                                {c}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
+
+                <Select
+                    onValueChange={(val) => handleSelectChange("degree", val)}
+                    value={formData.degree}
+                    dir={locale === "ar" ? "rtl" : "ltr"}
+                >
+                    <SelectTrigger className="bg-background border border-primary h-12 rounded-xl text-white">
+                        <SelectValue placeholder={t("degree")} />
+                    </SelectTrigger>
+                    <SelectContent>
+                        {degrees.map((d) => (
+                            <SelectItem key={d} value={d}>
+                                {d}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
+
+                <Select
+                    onValueChange={(val) => handleSelectChange("major", val)}
+                    value={formData.major}
+                    dir={locale === "ar" ? "rtl" : "ltr"}
+                >
+                    <SelectTrigger className="bg-background border border-primary h-12 rounded-xl text-white">
+                        <SelectValue placeholder={t("major")} />
+                    </SelectTrigger>
+                    <SelectContent>
+                        {majors.map((m) => (
+                            <SelectItem key={m} value={m}>
+                                {m}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
+
+                <Select
+                    onValueChange={(val) => handleSelectChange("graduationYear", val)}
+                    value={formData.graduationYear}
+                    dir={locale === "ar" ? "rtl" : "ltr"}
+                >
+                    <SelectTrigger className="bg-background border border-primary h-12 rounded-xl text-white">
+                        <SelectValue placeholder={t("graduationYear")} />
+                    </SelectTrigger>
+                    <SelectContent className="max-h-[300px]">
+                        {generateYears().map((y) => (
+                            <SelectItem key={y} value={y}>
+                                {y}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
+
+                <Select
+                    onValueChange={(val) => handleSelectChange("experienceLevel", val)}
+                    value={formData.experienceLevel}
+                    dir={locale === "ar" ? "rtl" : "ltr"}
+                >
+                    <SelectTrigger className="bg-background border border-primary h-12 rounded-xl text-white">
+                        <SelectValue placeholder={t("experienceLevel")} />
+                    </SelectTrigger>
+                    <SelectContent>
+                        {experienceLevels.map((lvl) => (
+                            <SelectItem key={lvl} value={lvl}>
+                                {lvl}
+                            </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
+            </div>
+
+            {/* File Upload */}
+            <div>
+                <label className="text-foreground">{t("resume")}</label>
+                <Input
+                    id="resume"
+                    type="file"
+                    onChange={handleFileChange}
+                    accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png"
+                    className="bg-background border border-primary h-12 rounded-xl text-white cursor-pointer"
+                />
+                {resumeFile && (
+                    <p className="text-sm text-accent mt-1">
+                        {t("selectedFile")}: {resumeFile.name}
+                    </p>
+                )}
+            </div>
+
+            <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-primary border border-primary h-12 rounded-xl text-xl hover:bg-primary/90"
+            >
+                {isSubmitting ? t("submitting") : t("submitApplication")}
+            </Button>
+        </form>
     );
 }
