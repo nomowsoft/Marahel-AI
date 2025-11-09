@@ -6,9 +6,9 @@ export async function POST(req: Request) {
     const { name, email, phone, message } = await req.json();
 
     const transporter = nodemailer.createTransport({
-      host: "smtppro.zoho.eu",
-      port: 465,
-      secure: true,
+      host: "smtp.zoho.com",
+      port: 587,
+      secure: false,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -33,8 +33,7 @@ export async function POST(req: Request) {
     await transporter.sendMail(mailOptions);
 
     return NextResponse.json({ success: true, message: "تم إرسال الرسالة بنجاح" });
-  } catch (error) {
-    console.error("خطأ أثناء إرسال البريد:", error);
+  } catch {
     return NextResponse.json({ success: false, message: "حدث خطأ أثناء الإرسال " }, { status: 500 });
   }
 }
