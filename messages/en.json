@@ -38,7 +38,7 @@
       "insights": "Insights",
       "blogs": "Blogs"
     },
-    "companymenu": "company",
+    "companymenu": "Company",
     "company": {
       "about": "About Us",
       "careers": "Careers",
@@ -619,7 +619,7 @@
           "desc": "Location & Routing"
         },
         "w3": {
-          "text": "Planner & Concierge",
+          "text": "Planner",
           "desc": "Schedule • Chat • AR/EN"
         },
         "w4": {

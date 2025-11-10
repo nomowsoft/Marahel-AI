@@ -44,13 +44,13 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product }) => {
 
                         <div className="flex flex-col sm:flex-row gap-4  items-center pt-4 w-full">
                             {/* Primary Button */}
-                            <Button
+                            {/* <Button
                                 size="lg"
                                 className="w-full sm:w-auto bg-primary hover:bg-primary/90 rounded-xl text-primary-foreground glow-primary group text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 text-center"
                             >
                                 {t('demobutton')}
                                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                            </Button>
+                            </Button> */}
 
                             {/* Outline Button */}
                             {/* <Button

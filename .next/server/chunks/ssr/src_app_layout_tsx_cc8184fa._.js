@@ -1,15 +1,3 @@
-module.exports = [
-"[project]/src/app/layout.tsx [app-rsc] (ecmascript)", ((__turbopack_context__) => {
-"use strict";
-
-__turbopack_context__.s([
-    "default",
-    ()=>RootLayout
-]);
-function RootLayout({ children }) {
-    return children;
-}
-}),
-];
+module.exports=[27572,a=>{"use strict";function b({children:a}){return a}a.s(["default",()=>b])}];
 
 //# sourceMappingURL=src_app_layout_tsx_cc8184fa._.js.map
