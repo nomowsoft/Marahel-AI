@@ -839,7 +839,7 @@ export const getContactInfo = (t: (key: string) => string): ContactInfo[] => [
     {
       id:2,
       icon: Phone,
-      title: t('contactusinfo.title.t3'),
+      title: t('contactusinfo.title.t2'),
       content: t('contactusinfo.content.c2'),
       link: "tel:+966112345678"
     },
