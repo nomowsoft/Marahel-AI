@@ -103,11 +103,11 @@ export default function ContactUs() {
                     </div>
                     <h3 className="font-semibold mb-2">{info.title}</h3>
                     {info.link ? (
-                      <a href={info.link} className="text-muted-foreground hover:text-primary transition-colors">
+                      <a href={info.link} dir={`${info.link === 'tel:+966112345678' ? 'ltr' : ''}`} className="text-muted-foreground hover:text-primary transition-colors">
                         {info.content}
                       </a>
                     ) : (
-                      <p className="text-muted-foreground">{info.content}</p>
+                      <p className="text-muted-foreground" dir={`${info.link === 'tel:+966112345678' ? 'ltr' : ''}`}>{info.content}</p>
                     )}
                   </div>
                 </CardContent>

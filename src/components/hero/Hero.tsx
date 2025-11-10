@@ -104,7 +104,7 @@ const Hero: React.FC = () => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="text-muted-foreground border-2 rounded-xl border-primary/50 hover:bg-primary/10 text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 group"
+                  className="text-muted-foreground border-2 rounded-xl border-primary/50 hover:bg-primary/10 hover:text-primary text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 group"
                 >
                   <Play className="ml-2 h-5 w-5" />
                   {t('button2')}
@@ -148,10 +148,10 @@ const Hero: React.FC = () => {
                         {item.cta.map((cta) =>{
                           return(
                             <div key={cta.id} className="flex flex-col md:flex-row justify-center gap-5">
-                              <Link href="#" className={`text-base border border-primary rounded-xl py-2 px-10 text-foreground ${cta.primary ? 'bg-primary text-primary-foreground' : ''}`}>
+                              <Link href="#" className={`text-base border border-primary rounded-xl py-2 px-10 text-foreground hover:bg-accent/10 hover:text-accent ${cta.primary ? 'bg-primary text-primary-foreground' : ''}`}>
                                 {cta.primary}
                               </Link>
-                              <Link href="#" className={`border border-primary rounded-xl py-2 px-10 text-base text-foreground ${cta.secondary ? 'text-primary' : ''}`}>
+                              <Link href="#" className={`border border-primary rounded-xl py-2 px-10 text-base text-foreground hover:bg-primary/10 hover:text-primary ${cta.secondary ? 'text-primary' : ''}`}>
                                 {cta.secondary}
                               </Link>
                             </div>
