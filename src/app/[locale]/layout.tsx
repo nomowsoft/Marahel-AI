@@ -45,7 +45,7 @@ export default async function RootLayout({ children, params }: { children: React
             <ToastContainer />
           </main>
           <Footer />
-          <div className={`fixed bottom-10 ${locale === 'ar' ? 'left-10' : 'right-10'}`}>
+          <div className={`fixed bottom-10 z-99 ${locale === 'ar' ? 'left-10' : 'right-10'}`}>
             <Link href="https://wa.me/+9660534551191" target="_blank" className="block lg:hidden">
               <Image src="/navbar/whatsapp.png" alt="..." width={60} height={20} />
             </Link>
