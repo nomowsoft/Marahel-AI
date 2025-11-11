@@ -32,7 +32,7 @@ export const CTA: React.FC = () => {
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+          {/* <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl glow-primary group text-lg px-8 py-6"
@@ -41,15 +41,15 @@ export const CTA: React.FC = () => {
               {t('button1')}
             </Button>
 
-            {/* <Button
+            <Button
               size="lg"
               variant="outline"
               className="border-2 text-muted-foreground rounded-xl border-primary/50 hover:bg-primary/10 text-sm md:text-lg px-8 py-6"
             >
               <Download className="ml-2 h-5 w-5" />
               {t('button2')}
-            </Button> */}
-          </div>
+            </Button>
+          </div> */}
 
           {/* Contact Info */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-12 max-w-3xl mx-auto">
