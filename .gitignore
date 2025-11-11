@@ -53,7 +53,7 @@ Generated\ Files/
 [Bb]uild[Ll]og.*
 *.trx
 
-# .env.local
+.env.local
 
 # NUnit
 *.VisualState.xml
