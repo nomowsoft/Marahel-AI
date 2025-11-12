@@ -24,7 +24,7 @@ export default function ContactUs() {
   const isValidEmail = (email: string) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   const isValidPhone = (phone: string) =>
-    /^\d/.test(phone);
+    /^[\d+]/.test(phone);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
