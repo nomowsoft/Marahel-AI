@@ -1,5 +1,7 @@
 import React from "react";
 import { Card } from "@/components/ui/card";
+import { Button } from "../ui/button";
+import { Download } from "lucide-react";
 import { getChallenges } from "@/utils/data";
 import { useTranslations } from "next-intl";
 import { SystemArchitecture } from "../animations/file4";
@@ -63,15 +65,15 @@ export const Challenges: React.FC = () => {
           })}
         </div>
 
-        {/* <div className="text-center">
+        <div className="text-center">
           <Button
             size="lg"
-            className="bg-primary hover:bg-primary/90 rounded-xl text-primary-foreground glow-primary"
+            className="bg-primary hover:bg-primary/90 rounded-xl text-primary-foreground glow-primary md:text-lg"
           >
             <Download className="ml-2 h-5 w-5" />
             {t('button')}
           </Button>
-        </div> */}
+        </div>
       </div>
     </section>
   );

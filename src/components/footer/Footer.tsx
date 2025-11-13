@@ -104,7 +104,7 @@ export const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
           <p>© 2025 {t('save')}</p>
-          {/* <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6">
             <Link href="#" className="hover:text-primary transition-colors">
               {t('privacy')}
             </Link>
@@ -114,7 +114,7 @@ export const Footer: React.FC = () => {
             <Link href="#" className="hover:text-primary transition-colors">
               {t('cookie')}
             </Link>
-          </div> */}
+          </div>
         </div>
       </div>
     </footer>

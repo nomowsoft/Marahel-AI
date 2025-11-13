@@ -101,14 +101,14 @@ const Hero: React.FC = () => {
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
 
-                {/* <Button
+                <Button
                   size="lg"
                   variant="outline"
                   className="text-muted-foreground border-2 rounded-xl border-primary/50 hover:bg-primary/10 hover:text-primary text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 group"
                 >
                   <Play className="ml-2 h-5 w-5" />
                   {t('button2')}
-                </Button> */}
+                </Button>
               </div>
             </div>
           </div>
@@ -144,7 +144,7 @@ const Hero: React.FC = () => {
                         );
                       })}
                     </div>
-                    {/* <div>
+                    <div>
                         {item.cta.map((cta) =>{
                           return(
                             <div key={cta.id} className="flex flex-col md:flex-row justify-center gap-5">
@@ -157,7 +157,7 @@ const Hero: React.FC = () => {
                             </div>
                           );
                         })}
-                    </div> */}
+                    </div>
                     <h1 className="text-2xl text-accent">
                       {item.footer}
                     </h1>

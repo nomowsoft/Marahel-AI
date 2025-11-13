@@ -29,15 +29,22 @@ import {
   CompanyDropdownMobile,
 } from "./company_dropdown";
 
+import { ServiceDropdown, ServiceDropdownMobile } from "./service_dropdown";
+import { BlogsDropdown, BlogsDropdownMobile } from "./blogs_dropdown";
+
 const DESKTOP_MENUS = [
   ProductsDropdown,
+  ServiceDropdown,
   SolutionsDropdown,
+  BlogsDropdown,
   CompanyDropdown,
 ];
 
 const MOBILE_MENUS = [
   ProductsDropdownMobile,
+  ServiceDropdownMobile,
   SolutionsDropdownMobile,
+  BlogsDropdownMobile,
   CompanyDropdownMobile,
 ];
 

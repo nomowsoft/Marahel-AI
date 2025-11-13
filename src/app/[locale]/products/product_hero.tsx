@@ -1,7 +1,7 @@
 import React from "react";
 import { ProductsItem, getProducts } from "@/utils/data_products/data_ai";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 interface ProductHeroProps {
@@ -44,23 +44,23 @@ const ProductHero: React.FC<ProductHeroProps> = ({ product }) => {
 
                         <div className="flex flex-col sm:flex-row gap-4  items-center pt-4 w-full">
                             {/* Primary Button */}
-                            {/* <Button
+                            <Button
                                 size="lg"
                                 className="w-full sm:w-auto bg-primary hover:bg-primary/90 rounded-xl text-primary-foreground glow-primary group text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 text-center"
                             >
                                 {t('demobutton')}
                                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                            </Button> */}
+                            </Button>
 
                             {/* Outline Button */}
-                            {/* <Button
+                            <Button
                                 size="lg"
                                 variant="outline"
-                                className="w-full sm:w-auto text-muted-foreground border-2 rounded-xl border-primary/50 hover:bg-primary/10 text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 group text-center"
+                                className="w-full sm:w-auto text-muted-foreground border-2 rounded-xl border-primary/50 hover:bg-primary/10 hover:text-primary text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 group text-center"
                             >
                                 <Play className="ml-2 h-5 w-5" />
                                 {t('downloadbutton')}
-                            </Button> */}
+                            </Button>
                         </div>
                     </div>
                     {/* Left side: Demo */}

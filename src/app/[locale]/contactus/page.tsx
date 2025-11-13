@@ -212,7 +212,7 @@ export default function ContactUs() {
                 </div>
               </div>
 
-              {/* <Card className="bg-primary/5 border-primary/20">
+              <Card className="bg-primary/5 border-primary/20">
                 <CardContent className="pt-6">
                   <h3 className="font-bold text-xl mb-4">{t('support.title')}</h3>
                   <p className="text-muted-foreground mb-4">
@@ -234,7 +234,7 @@ export default function ContactUs() {
                     {t('book.button')}
                   </Button>
                 </CardContent>
-              </Card> */}
+              </Card>
 
               <div className="bg-gradient-to-br from-primary/10 to-primary/5 p-6 rounded-lg">
                 <h3 className="font-bold text-xl mb-4 text-foreground">{t('socialmedia.title')}</h3>

@@ -107,7 +107,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "/home/ahmed/nextjs-project/marahel-ai-dev",
+    "outputFileTracingRoot": "/home/ahmed/nextjs-project/marahel-ai",
     "experimental": {
       "useSkewCookie": false,
       "cacheLife": {
@@ -299,10 +299,10 @@
       "resolveAlias": {
         "next-intl/config": "./src/i18n/request.ts"
       },
-      "root": "/home/ahmed/nextjs-project/marahel-ai-dev"
+      "root": "/home/ahmed/nextjs-project/marahel-ai"
     }
   },
-  "appDir": "/home/ahmed/nextjs-project/marahel-ai-dev",
+  "appDir": "/home/ahmed/nextjs-project/marahel-ai",
   "relativeAppDir": "",
   "files": [
     ".next/routes-manifest.json",

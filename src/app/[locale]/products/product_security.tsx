@@ -68,7 +68,7 @@ const ProductSecurity: React.FC<ProductSecurityProps> = ({ product }) => {
                         {foundProduct.footertext}
                     </p>
                 </div>
-                {/* <div className="flex flex-col sm:flex-row gap-4 justify-start sm:justify-center items-center pt-10 w-full">
+                <div className="flex flex-col sm:flex-row gap-4 justify-start sm:justify-center items-center pt-10 w-full">
                     <Button
                         size="lg"
                         className="w-full sm:w-auto bg-primary hover:bg-primary/90 rounded-xl text-primary-foreground glow-primary group text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 text-center"
@@ -80,11 +80,11 @@ const ProductSecurity: React.FC<ProductSecurityProps> = ({ product }) => {
                     <Button
                         size="lg"
                         variant="outline"
-                        className="w-full sm:w-auto text-muted-foreground border-2 rounded-xl border-primary/50 hover:bg-primary/10 text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 group text-center"
+                        className="w-full sm:w-auto text-muted-foreground border-2 rounded-xl border-primary/50 hover:bg-primary/10 hover:text-primary text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 group text-center"
                     >
                         {t('downloadbutton')}
                     </Button>
-                </div> */}
+                </div>
             </div>
         </section>
 
